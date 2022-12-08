@@ -1,0 +1,38 @@
+### General
+
+## Sets sane Zsh built-in environment options
+zmodule environment
+
+## Provides handy git aliases and functions
+zmodule git
+
+## Applies correct bindkeys for input events
+zmodule input
+
+## Sets a custom terminal title
+zmodule termtitle
+
+## Utility aliases and functions; adds colour to ls, grep, and less
+zmodule utility
+
+
+### Prompt
+
+## Exposes git repository status information to prompts
+zmodule git-info
+
+## A fork of the Powerline-inspired agnoster theme
+zmodule eriner
+
+## Additional completion definitions for Zsh
+zmodule zsh-users/zsh-completions --fpath src
+
+## Enables and configures smart and extensive tab completion
+zmodule completion
+
+## Fish-like syntax highlighting for Zsh
+zmodule zsh-users/zsh-syntax-highlighting
+
+## Fish-like history search (up arrow) for Zsh
+zmodule zsh-users/zsh-history-substring-search
+
