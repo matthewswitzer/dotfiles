@@ -1,4 +1,4 @@
-### General
+# General
 
 ## Sets sane Zsh built-in environment options
 zmodule environment
@@ -16,7 +16,7 @@ zmodule termtitle
 zmodule utility
 
 
-### Prompt
+# Prompt
 
 ## Exposes git repository status information to prompts
 zmodule git-info

@@ -1,4 +1,4 @@
-### Zsh Configuration
+# Zsh Configuration
 
 ## Remove older command from history if a duplicate is to be added
 setopt HIST_IGNORE_ALL_DUPS
@@ -13,12 +13,12 @@ WORDCHARS=${WORDCHARS//[\/]}
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
 
-### Zim Configuration
+# Zim Configuration
 
 ## Initialize modules
 ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-  # Download zimfw script if missing.
+  ### Download zimfw script if missing.
   if (( ${+commands[curl]} )); then
     curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
   else
@@ -26,13 +26,13 @@ if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
   fi
 fi
 if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
-  # Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+  ### Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
 source ${ZIM_HOME}/init.zsh
 
 
-### User Configuration
+# User Configuration
 
 ## Ensure user-install binaries take precedence
 export PATH="/opt/homebrew/sbin:$PATH"
@@ -59,15 +59,15 @@ if [ -x "$(command -v nvim)" ]; then
     export EDITOR=nvim
     export VISUAL=$EDITOR
 
-    # Use neovim instead of vim or vi
+    ### Use neovim instead of vim or vi
     alias vim=nvim
     alias vi=nvim
 
-    # Neovim config and data locations
+    ### Neovim config and data locations
     export VIMCONFIG=$HOME/.config/nvim
     export VIMDATA=$HOME/.local/share/nvim
 
-    # Prevent nesting neovim instances with nvr
+    ### Prevent nesting neovim instances with nvr
     if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
         if [ -x "$(command -v nvr)" ]; then
             export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
