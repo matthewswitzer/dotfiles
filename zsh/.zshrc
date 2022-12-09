@@ -39,6 +39,7 @@ export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
 ## Variables
+export DOTFILES="$HOME/.dotfiles"
 export PROJECTS="$HOME/Developer/Projects"
 
 ## Aliases
