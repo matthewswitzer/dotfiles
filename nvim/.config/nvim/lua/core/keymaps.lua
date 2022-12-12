@@ -170,6 +170,22 @@ map(
     { desc = 'Search Using Grep Args' }
 )
 
+-- Search highlight groups with <Leader>fh
+map(
+    'n',
+    '<Leader>fh',
+    '<Cmd>Telescope highlights<CR>',
+    { desc = 'Search Highlight Groups' }
+)
+
+-- Show treesitter highlight group under cursor with <Leader>H
+map(
+    'n',
+    '<Leader>H',
+    '<Cmd>TSHighlightCapturesUnderCursor<CR>',
+    { desc = 'Show Highlight Group Under Cursor' }
+)
+
 -- Show treesitter symbols with <Leader>s
 map('n', '<Leader>s', '<Cmd>Telescope treesitter<CR>', { desc = 'Find Symbols' })
 
