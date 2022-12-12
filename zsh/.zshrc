@@ -41,6 +41,7 @@ export PATH="$HOME/.local/bin:$PATH"
 ## Variables
 export DOTFILES="$HOME/.dotfiles"
 export PROJECTS="$HOME/Developer/Projects"
+export ICLOUD="$HOME/Library/Mobile Documents/com~apple~CloudDocs"
 
 ## Aliases
 alias lla="ls -alh"
