@@ -5,11 +5,14 @@
 require('onedark').setup {
     highlights = {
         ['@constructor'] = { fg = '$yellow', fmt = 'none' },
+        ['@interface'] = { fg = '$yellow', fmt = 'none' },
         ['@parameter'] = { fg = '$red', fmt = 'italic' },
         ['@parameter.reference'] = { fg = '$red', fmt = 'italic' },
-        ['@variable'] = { fg = '$yellow', fmt = 'none' },
+        ['@property'] = { fg = '$red' },
+        ['@punctuation.special'] = { fg = '$cyan' },
         ['@tag.attribute'] = { fg = '$orange', fmt = 'italic' },
         ['@tag.delimiter'] = { fg = '$fg' },
+        ['@variable'] = { fg = '$yellow', fmt = 'none' },
         FloatBorder = { fg = '$light_grey', bg = '$bg0' },
         NormalFloat = { fg = '$fg', bg = '$bg0' },
         BufferLineFill = { bg = '#1e2127' },
