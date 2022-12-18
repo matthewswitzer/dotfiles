@@ -80,9 +80,6 @@ return require('packer').startup(function(use)
         end,
     }
 
-    -- treesitter playground
-    use 'nvim-treesitter/playground'
-
     -- jump to location
     use {
         'phaazon/hop.nvim',

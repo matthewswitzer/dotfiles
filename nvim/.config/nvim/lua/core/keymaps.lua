@@ -178,13 +178,8 @@ map(
     { desc = 'Search Highlight Groups' }
 )
 
--- Show treesitter highlight group under cursor with <Leader>H
-map(
-    'n',
-    '<Leader>H',
-    '<Cmd>TSHighlightCapturesUnderCursor<CR>',
-    { desc = 'Show Highlight Group Under Cursor' }
-)
+-- Inspect highlight group under cursor with <Leader>H
+map('n', '<Leader>H', '<Cmd>Inspect<CR>', { desc = 'Show Highlight Group Under Cursor' })
 
 -- Show treesitter symbols with <Leader>s
 map('n', '<Leader>s', '<Cmd>Telescope treesitter<CR>', { desc = 'Find Symbols' })
