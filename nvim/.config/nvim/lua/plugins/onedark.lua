@@ -8,7 +8,6 @@ require('onedark').setup {
         ['@interface'] = { fg = '$yellow', fmt = 'none' },
         ['@parameter'] = { fg = '$red', fmt = 'italic' },
         ['@parameter.reference'] = { fg = '$red', fmt = 'italic' },
-        ['@property'] = { fg = '$red' },
         ['@punctuation.special'] = { fg = '$cyan' },
         ['@tag.attribute'] = { fg = '$orange', fmt = 'italic' },
         ['@tag.delimiter'] = { fg = '$fg' },
