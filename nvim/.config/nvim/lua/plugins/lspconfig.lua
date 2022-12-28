@@ -117,16 +117,14 @@ local format_group = vim.api.nvim_create_augroup('LspFormatting', {})
 -- Only setup the following buffer options when an lsp is attached
 local on_attach = function(client, bufnr)
     -- format on save
-    if client.supports_method 'textDocument/formatting' then
-        vim.api.nvim_clear_autocmds { group = format_group, buffer = bufnr }
-        vim.api.nvim_create_autocmd('BufWritePre', {
-            group = format_group,
-            buffer = bufnr,
-            callback = function()
-                lsp_formatter(bufnr)
-            end,
-        })
-    end
+    vim.api.nvim_clear_autocmds { group = format_group, buffer = bufnr }
+    vim.api.nvim_create_autocmd('BufWritePre', {
+        group = format_group,
+        buffer = bufnr,
+        callback = function()
+            lsp_formatter(bufnr)
+        end,
+    })
 
     -- show diagnostics on cursor hold
     vim.api.nvim_create_autocmd('CursorHold', {
