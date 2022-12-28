@@ -20,6 +20,7 @@ require('neo-tree').setup {
             never_show = {
                 '.DS_Store',
                 '.git',
+                '.venv',
             },
         },
         follow_current_file = true,
