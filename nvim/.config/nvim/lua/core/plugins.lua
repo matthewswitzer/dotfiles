@@ -71,6 +71,9 @@ return require('packer').startup(function(use)
         end,
     }
 
+    -- highlight args
+    use 'm-demare/hlargs.nvim'
+
     -- jump to location
     use {
         'phaazon/hop.nvim',
