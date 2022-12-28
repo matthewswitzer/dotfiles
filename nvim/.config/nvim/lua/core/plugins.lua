@@ -41,15 +41,6 @@ return require('packer').startup(function(use)
         },
     }
 
-    -- remote resources
-    use {
-        'miversen33/netman.nvim',
-        branch = 'v1.1',
-        config = function()
-            require 'netman'
-        end,
-    }
-
     -- terminal
     use 'numToStr/FTerm.nvim'
 

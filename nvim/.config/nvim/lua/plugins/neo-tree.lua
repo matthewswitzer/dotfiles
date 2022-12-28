@@ -26,7 +26,6 @@ require('neo-tree').setup {
         use_libuv_file_watcher = true,
     },
     sources = {
-        "filesystem",
-        "netman.ui.neo-tree"
-    }
+        'filesystem',
+    },
 }
