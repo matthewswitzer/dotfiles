@@ -6,9 +6,6 @@ local cmp = require 'cmp'
 local lspkind = require 'lspkind'
 local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
 local luasnip = require 'luasnip'
-local snip = luasnip.snippet
-local txt = luasnip.text_node
-local ins = luasnip.insert_node
 
 -----------------------------------------------------------
 -- Completion setup
