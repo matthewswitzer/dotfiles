@@ -123,6 +123,11 @@ local on_attach = function(client, bufnr)
         buffer = bufnr,
         callback = function()
             lsp_formatter(bufnr)
+
+            -- formatting makes codelenses disappear, so refresh afterwards
+            if client.server_capabilities.codeLensProvider then
+                vim.lsp.codelens.refresh()
+            end
         end,
     })
 
