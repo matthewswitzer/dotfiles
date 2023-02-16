@@ -97,5 +97,24 @@ cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 -- Luasnip setup
 -----------------------------------------------------------
 
+local s = luasnip.snippet
+local t = luasnip.text_node
+local i = luasnip.insert_node
+local f = luasnip.function_node
+
+-- TypeScript snippets
+luasnip.add_snippets('typescript', {
+    s('nominal', {
+        t 'export type ',
+        i(1, 'TypeName'),
+        t ' = ',
+        i(2, 'string'),
+        f(function(args)
+            return " & B.Brand<'" .. args[1][1] .. "'>"
+        end, { 1 }),
+        i(0),
+    }),
+})
+
 --  Lazy load friendly snippets based on filetype
 require('luasnip.loaders.from_vscode').lazy_load()
