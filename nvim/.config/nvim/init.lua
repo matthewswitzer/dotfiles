@@ -14,6 +14,7 @@ require 'core/keymaps'
 -- Plugins
 -----------------------------------------------------------
 require 'plugins/onedark'
+require 'plugins/nvim-web-devicons'
 require 'plugins/lualine'
 require 'plugins/bufferline'
 require 'plugins/neo-tree'

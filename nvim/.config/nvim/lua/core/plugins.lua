@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
     use 'navarasu/onedark.nvim'
 
     -- icons
-    use 'kyazdani42/nvim-web-devicons'
+    use 'nvim-tree/nvim-web-devicons'
 
     -- statusline
     use 'nvim-lualine/lualine.nvim'
