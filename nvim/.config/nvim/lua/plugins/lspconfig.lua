@@ -226,6 +226,30 @@ mason_lspconfig.setup_handlers {
             },
         }
     end,
+    ['lua_ls'] = function(server_name)
+        lspconfig[server_name].setup {
+            on_attach = on_attach,
+            root_dir = root_dir,
+            capabilities = capabilities,
+            flags = lsp_flags,
+            settings = {
+                Lua = {
+                    runtime = {
+                        version = 'LuaJIT',
+                    },
+                    diagnostics = {
+                        globals = { 'vim' },
+                    },
+                    workspace = {
+                        library = vim.api.nvim_get_runtime_file('', true),
+                    },
+                    telemetry = {
+                        enable = false,
+                    },
+                },
+            },
+        }
+    end,
     ['pyright'] = function(server_name)
         lspconfig[server_name].setup {
             on_attach = on_attach,
@@ -239,21 +263,6 @@ mason_lspconfig.setup_handlers {
                         useLibraryCodeForTypes = true,
                     },
                     venvPath = '.',
-                },
-            },
-        }
-    end,
-    ['sumneko_lua'] = function(server_name)
-        lspconfig[server_name].setup {
-            on_attach = on_attach,
-            root_dir = root_dir,
-            capabilities = capabilities,
-            flags = lsp_flags,
-            settings = {
-                Lua = {
-                    diagnostics = {
-                        globals = { 'vim' },
-                    },
                 },
             },
         }
