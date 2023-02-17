@@ -176,7 +176,7 @@ local on_attach = function(client, bufnr)
     end, opts)
     map('n', '<C-o>', function()
         organize_imports(client, bufnr)
-    end)
+    end, opts)
 end
 
 local root_dir = function()
