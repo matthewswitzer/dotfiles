@@ -16,7 +16,7 @@ require('onedark').setup {
         NormalFloat = { fg = '$fg', bg = '$bg0' },
         BufferLineFill = { bg = '#1e2127' },
         BufferLineIndicatorSelected = { fg = '$grey' },
-        BufferLineOffset = { fg = '$fg', bg = '$bg_d', fmt = 'bold,italic' },
+        BufferLineOffset = { fg = '$fg', bg = '$bg_d', fmt = 'bold' },
         BufferLineSeparator = { fg = '#1e2127', bg = '#1e2127' },
         IndentBlankLineChar = { fg = '$bg3' },
         NeoTreeVertSplit = { fg = '$bg3', bg = '$bg_d' },
