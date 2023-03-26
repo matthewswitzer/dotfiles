@@ -366,16 +366,6 @@ map('n', '<Leader>t', '<Cmd>Telescope tasks specs<CR>', { desc = 'Show Task Spec
 map('n', '<Leader>T', '<Cmd>Telescope tasks running<CR>', { desc = 'Show Running Tasks' })
 
 -----------------------------------------------------------
--- REST
------------------------------------------------------------
-
--- Run the HTTP request under the cursor with <Leader>/
-map('n', '<Leader>/', '<Plug>RestNvim', { desc = 'Run HTTP Request' })
-
--- Rerun the last HTTP request with <Leader>//
-map('n', '<Leader>//', '<Plug>RestNvimLast', { desc = 'Run Last HTTP Request' })
-
------------------------------------------------------------
 -- Glow
 -----------------------------------------------------------
 

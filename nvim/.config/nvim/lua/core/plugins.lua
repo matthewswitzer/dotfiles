@@ -143,11 +143,8 @@ return require('packer').startup(function(use)
     -- task runner
     use 'GustavoKatel/tasks.nvim'
 
-    -- REST client
     use {
-        'rest-nvim/rest.nvim',
         config = function()
-            require('rest-nvim').setup {}
         end,
     }
 
