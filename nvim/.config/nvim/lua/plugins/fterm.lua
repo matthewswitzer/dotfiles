@@ -41,6 +41,21 @@ local lazydocker = terminal {
     cmd = 'lazydocker',
 }
 
+-- Code Runner
+local function run_code()
+    local runners = {
+        lua = 'lua',
+        javascript = 'node',
+        python = 'python',
+    }
+    local buf = vim.api.nvim_buf_get_name(0)
+    local ftype = vim.filetype.match { filename = buf }
+    local exec = runners[ftype]
+    if exec ~= nil then
+        fterm.scratch { cmd = { exec, buf } }
+    end
+end
+
 -----------------------------------------------------------
 -- User Commands
 -----------------------------------------------------------
@@ -61,6 +76,11 @@ end, { bang = true })
 -- :LazydockerToggle
 command('LazydockerToggle', function()
     lazydocker:toggle()
+end, { bang = true })
+
+-- :FTermRunCode
+command('FTermRunCode', function()
+    run_code()
 end, { bang = true })
 
 -----------------------------------------------------------

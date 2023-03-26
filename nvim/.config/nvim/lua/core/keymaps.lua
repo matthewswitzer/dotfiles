@@ -139,6 +139,14 @@ map('n', '<Leader>G', '<Cmd>LazygitToggle<CR>', { desc = 'Toggle Lazygit' })
 -- Toggle lazydocker with <Leader>C
 map('n', '<Leader>C', '<Cmd>LazydockerToggle<CR>', { desc = 'Toggle Lazydocker' })
 
+-- Run code in current buffer with <Leader><Enter>
+map(
+    'n',
+    '<Leader><Enter>',
+    '<Cmd>FTermRunCode<CR>',
+    { desc = 'Run Code in Current Buffer' }
+)
+
 -----------------------------------------------------------
 -- Telescope
 -----------------------------------------------------------
