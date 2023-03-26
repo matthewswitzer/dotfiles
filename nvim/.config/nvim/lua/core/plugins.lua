@@ -50,7 +50,6 @@ return require('packer').startup(function(use)
         requires = {
             { 'nvim-lua/plenary.nvim' },
             { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-            { 'nvim-telescope/telescope-ui-select.nvim' },
             { 'nvim-telescope/telescope-live-grep-args.nvim' },
         },
     }
@@ -70,6 +69,9 @@ return require('packer').startup(function(use)
             require('treesitter-context').setup {}
         end,
     }
+
+    -- vim.ui patches
+    use 'stevearc/dressing.nvim'
 
     -- highlight args
     use 'm-demare/hlargs.nvim'
