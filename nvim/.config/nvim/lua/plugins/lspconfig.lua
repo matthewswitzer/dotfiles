@@ -262,7 +262,6 @@ mason_lspconfig.setup_handlers {
                         diagnosticMode = 'workspace',
                         useLibraryCodeForTypes = true,
                     },
-                    venvPath = '.',
                 },
             },
         }
