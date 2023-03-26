@@ -369,11 +369,11 @@ map(
 -- Tasks
 -----------------------------------------------------------
 
--- Show available task specs to run with <Leader>t
-map('n', '<Leader>t', '<Cmd>Telescope tasks specs<CR>', { desc = 'Show Task Specs' })
+-- Show available task to run with <Leader>t
+map('n', '<Leader>t', '<Cmd>OverseerRun<CR>', { desc = 'Show Tasks' })
 
 -- Show running tasks with <Leader>T
-map('n', '<Leader>T', '<Cmd>Telescope tasks running<CR>', { desc = 'Show Running Tasks' })
+map('n', '<Leader>T', '<Cmd>OverseerToggle<CR>', { desc = 'Show Running Tasks' })
 
 -----------------------------------------------------------
 -- Glow

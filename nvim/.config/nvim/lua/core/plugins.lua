@@ -146,12 +146,7 @@ return require('packer').startup(function(use)
     }
 
     -- task runner
-    use 'GustavoKatel/tasks.nvim'
-
-    use {
-        config = function()
-        end,
-    }
+    use 'stevearc/overseer.nvim'
 
     -- lsp
     use {
