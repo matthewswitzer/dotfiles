@@ -59,3 +59,4 @@ require('telescope').setup {
 require('telescope').load_extension 'fzf'
 require('telescope').load_extension 'tasks'
 require('telescope').load_extension 'neoclip'
+require('telescope').load_extension 'notify'

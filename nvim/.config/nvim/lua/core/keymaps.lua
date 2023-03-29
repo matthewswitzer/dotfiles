@@ -204,6 +204,16 @@ map(
 map('n', '<Leader>y', '<Cmd>Telescope neoclip<CR>', { desc = 'Show Clipboard Entries' })
 
 -----------------------------------------------------------
+-- Notify
+-----------------------------------------------------------
+
+-- Show notifications history with <Leader>N
+map('n', '<Leader>N', '<Cmd>Telescope notify<CR>', { desc = 'Show Notifications' })
+
+-- Dismiss all notifications with Q
+map('n', 'Q', ':lua require("notify").dismiss()<CR>', { desc = 'Dismiss Notifications' })
+
+-----------------------------------------------------------
 -- Hop
 -----------------------------------------------------------
 

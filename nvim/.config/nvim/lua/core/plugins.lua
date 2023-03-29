@@ -73,6 +73,9 @@ return require('packer').startup(function(use)
     -- vim.ui patches
     use 'stevearc/dressing.nvim'
 
+    -- vim.notify ui
+    use 'rcarriga/nvim-notify'
+
     -- highlight args
     use 'm-demare/hlargs.nvim'
 
