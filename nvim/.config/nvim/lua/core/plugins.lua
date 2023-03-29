@@ -133,6 +133,9 @@ return require('packer').startup(function(use)
     -- markdown preview
     use 'ellisonleao/glow.nvim'
 
+    -- task runner
+    use 'stevearc/overseer.nvim'
+
     -- test runner
     use {
         'nvim-neotest/neotest',
@@ -144,9 +147,6 @@ return require('packer').startup(function(use)
             'nvim-neotest/neotest-python',
         },
     }
-
-    -- task runner
-    use 'stevearc/overseer.nvim'
 
     -- lsp
     use {
