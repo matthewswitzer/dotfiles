@@ -240,11 +240,21 @@ map(
 )
 
 -----------------------------------------------------------
--- Mason
+-- Glow
 -----------------------------------------------------------
 
--- Open mason with <Leader>M
-map('n', '<Leader>M', '<Cmd>Mason<CR>', { desc = 'Open Mason' })
+-- Preview markdown in the current buffer with <Leader>md
+map('n', '<Leader>md', '<Cmd>Glow<CR>', { desc = 'Preview Markdown' })
+
+-----------------------------------------------------------
+-- Tasks
+-----------------------------------------------------------
+
+-- Show available task to run with <Leader>t
+map('n', '<Leader>t', '<Cmd>OverseerRun<CR>', { desc = 'Show Tasks' })
+
+-- Show running tasks with <Leader>T
+map('n', '<Leader>T', '<Cmd>OverseerToggle<CR>', { desc = 'Show Running Tasks' })
 
 -----------------------------------------------------------
 -- DAP
@@ -352,18 +362,5 @@ map(
 )
 
 -----------------------------------------------------------
--- Tasks
 -----------------------------------------------------------
 
--- Show available task to run with <Leader>t
-map('n', '<Leader>t', '<Cmd>OverseerRun<CR>', { desc = 'Show Tasks' })
-
--- Show running tasks with <Leader>T
-map('n', '<Leader>T', '<Cmd>OverseerToggle<CR>', { desc = 'Show Running Tasks' })
-
------------------------------------------------------------
--- Glow
------------------------------------------------------------
-
--- Preview markdown in the current buffer with <Leader>md
-map('n', '<Leader>md', '<Cmd>Glow<CR>', { desc = 'Preview Markdown' })
