@@ -240,25 +240,11 @@ map(
 )
 
 -----------------------------------------------------------
--- LSP
+-- Mason
 -----------------------------------------------------------
 
 -- Open mason with <Leader>M
 map('n', '<Leader>M', '<Cmd>Mason<CR>', { desc = 'Open Mason' })
-
--- Navigate diagnostics with ]g and [g
-map(
-    'n',
-    ']g',
-    '<Cmd>lua vim.diagnostic.goto_next { float = false }<CR>',
-    { desc = 'Go to Next Diagnostic' }
-)
-map(
-    'n',
-    '[g',
-    '<Cmd>lua vim.diagnostic.goto_prev { float = false }<CR>',
-    { desc = 'Go to Prev Diagnostic' }
-)
 
 -----------------------------------------------------------
 -- DAP
