@@ -2,6 +2,19 @@
 -- Telescope Configuration
 -----------------------------------------------------------
 
+-- Prevent entering buffers in insert mode
+vim.api.nvim_create_autocmd('WinLeave', {
+    callback = function()
+        if vim.bo.ft == 'TelescopePrompt' and vim.fn.mode() == 'i' then
+            vim.api.nvim_feedkeys(
+                vim.api.nvim_replace_termcodes('<Esc>', true, false, true),
+                'i',
+                false
+            )
+        end
+    end,
+})
+
 require('telescope').setup {
     defaults = {
         results_title = false,
