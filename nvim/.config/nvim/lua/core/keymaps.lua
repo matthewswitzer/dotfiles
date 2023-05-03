@@ -300,6 +300,8 @@ map(
     "<Cmd>lua require('dap').repl.toggle()<CR>",
     { desc = 'Toggle DAP REPL' }
 )
+map('n', '<Leader>dt', '<Cmd>DapOpenDebugTab<CR>', { desc = 'Open Debug Tab' })
+map('n', '<Leader>dT', '<Cmd>DapCloseDebugTab<CR>', { desc = 'Close Debug Tab' })
 map(
     'n',
     '<Leader>dJ',

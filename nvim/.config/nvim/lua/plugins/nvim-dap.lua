@@ -69,6 +69,10 @@ local function close_debug_tab()
     debug_tabnr = nil
 end
 
+-- Create commands we can call to open/close the debug tab
+vim.api.nvim_create_user_command('DapOpenDebugTab', open_debug_tab, { bang = true })
+vim.api.nvim_create_user_command('DapCloseDebugTab', close_debug_tab, { bang = true })
+
 -- Automatically open and close DAP UI
 dap.listeners.after.event_initialized['dapui_config'] = function()
     open_debug_tab()
