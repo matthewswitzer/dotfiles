@@ -297,8 +297,8 @@ map(
 map(
     'n',
     '<Leader>dr',
-    "<Cmd>lua require('dap').repl_open()<CR>",
-    { desc = 'Open DAP REPL' }
+    "<Cmd>lua require('dap').repl.toggle()<CR>",
+    { desc = 'Toggle DAP REPL' }
 )
 map(
     'n',
