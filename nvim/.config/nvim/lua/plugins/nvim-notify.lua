@@ -9,6 +9,8 @@ local notify = require 'notify'
 -----------------------------------------------------------
 
 notify.setup {
+    fps = 60,
+    timeout = 3000,
     top_down = false,
 }
 
