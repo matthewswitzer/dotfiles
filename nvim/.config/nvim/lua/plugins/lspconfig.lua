@@ -172,10 +172,10 @@ local on_attach = function(client, bufnr)
     map('n', '<Leader>.', vim.lsp.buf.code_action, opts)
     map('n', '<Leader>,', vim.lsp.codelens.run, opts)
     map('n', ']g', function()
-        vim.diagnostic.goto_next { float = false, wrap = false }
+        vim.diagnostic.goto_next { float = false }
     end, opts)
-    map('n', ']g', function()
-        vim.diagnostic.goto_prev { float = false, wrap = false }
+    map('n', '[g', function()
+        vim.diagnostic.goto_prev { float = false }
     end, opts)
     map('n', '<C-f>', function()
         lsp_formatter(bufnr)
