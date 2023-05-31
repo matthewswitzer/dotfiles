@@ -91,14 +91,14 @@ dap_virtual_text.setup {}
 -- DAP signs
 -----------------------------------------------------------
 
-vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticSignError' })
+vim.fn.sign_define('DapBreakpoint', { text = '', texthl = 'DiagnosticSignError' })
 vim.fn.sign_define(
     'DapBreakpointCondition',
-    { text = 'ﳁ', texthl = 'DiagnosticSignError' }
+    { text = '', texthl = 'DiagnosticSignError' }
 )
-vim.fn.sign_define('DapLogPoint', { text = 'ﱴ', texthl = 'DiagnosticSignWarn' })
-vim.fn.sign_define('DapStopped', { text = '', texthl = 'DiagnosticSignInfo' })
+vim.fn.sign_define('DapLogPoint', { text = '', texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define('DapStopped', { text = '', texthl = 'DiagnosticSignInfo' })
 vim.fn.sign_define(
     'DapBreakpointRejected',
-    { text = '', texthl = 'DiagnosticSignError' }
+    { text = '', texthl = 'DiagnosticSignError' }
 )

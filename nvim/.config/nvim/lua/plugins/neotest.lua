@@ -11,10 +11,10 @@ require('neotest').setup {
         enabled = false,
     },
     icons = {
-        failed = '',
-        passed = '',
-        running = '',
-        skipped = 'ﰸ',
-        unknown = '',
+        failed = '󱎘',
+        passed = '󰸞',
+        running = '󰓦',
+        skipped = '󱘹',
+        unknown = '󰝦',
     },
 }
