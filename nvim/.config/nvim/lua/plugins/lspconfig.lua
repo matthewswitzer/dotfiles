@@ -262,14 +262,6 @@ mason_lspconfig.setup_handlers {
             root_dir = root_dir,
             capabilities = capabilities,
             flags = lsp_flags,
-            settings = {
-                python = {
-                    analysis = {
-                        diagnosticMode = 'workspace',
-                        useLibraryCodeForTypes = true,
-                    },
-                },
-            },
         }
     end,
     ['tsserver'] = function(server_name)
