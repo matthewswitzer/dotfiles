@@ -33,6 +33,10 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
 
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.indexing": true,
   "python.analysis.typeCheckingMode": "basic",
