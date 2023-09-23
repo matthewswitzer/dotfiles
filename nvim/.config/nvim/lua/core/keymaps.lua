@@ -151,6 +151,9 @@ map(
 -- Telescope
 -----------------------------------------------------------
 
+-- Show keymaps with <Leader>K
+map('n', '<Leader>K', '<Cmd>Telescope keymaps<CR>', { desc = 'Show Keymaps' })
+
 -- Find files in the current directory with <Leader>p
 map('n', '<Leader>p', '<Cmd>Telescope find_files<CR>', { desc = 'Find Files' })
 
