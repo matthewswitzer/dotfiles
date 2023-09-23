@@ -12,6 +12,7 @@ require('onedark').setup {
         ['@tag.attribute'] = { fg = '$orange', fmt = 'italic' },
         ['@tag.delimiter'] = { fg = '$fg' },
         ['@variable'] = { fg = '$yellow', fmt = 'none' },
+        ['@lsp.type.variable'] = { fg = '$yellow', fmt = 'none' },
         FloatBorder = { fg = '$light_grey', bg = '$bg0' },
         NormalFloat = { fg = '$fg', bg = '$bg0' },
         BufferLineFill = { bg = '#1e2127' },
