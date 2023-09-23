@@ -6,7 +6,6 @@ local mason = require 'mason'
 local mason_lspconfig = require 'mason-lspconfig'
 local mason_tool_installer = require 'mason-tool-installer'
 local lspconfig = require 'lspconfig'
-local null_ls = require 'null-ls'
 
 -----------------------------------------------------------
 -- Mason setup
@@ -27,6 +26,7 @@ mason_tool_installer.setup {
         'bash-language-server',
         'css-lsp',
         'dockerfile-language-server',
+        'efm',
         'emmet-ls',
         'eslint-lsp',
         'html-lsp',
@@ -54,31 +54,76 @@ mason_tool_installer.setup {
 }
 
 -----------------------------------------------------------
--- Null-ls setup
+-- efm-ls setup
 -----------------------------------------------------------
-local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
 
-null_ls.setup {
-    sources = {
-        -- Linters
-        diagnostics.flake8,
-        diagnostics.markdownlint,
+-- linters
+local flake8 = require 'efmls-configs.linters.flake8'
+local markdownlint = require 'efmls-configs.linters.markdownlint'
 
-        -- Formatters
-        formatting.black,
-        formatting.isort.with {
-            extra_args = {
-                '--profile',
-                'black',
-            },
-        },
-        formatting.prettierd.with {
-            env = {
-                PRETTIERD_DEFAULT_CONFIG = vim.fn.expand '~/.config/nvim/utils/config/.prettierrc.json',
-            },
-        },
-        formatting.stylua,
+-- formatters
+local black = require 'efmls-configs.formatters.black'
+local isort = require 'efmls-configs.formatters.isort'
+local prettierd = require 'efmls-configs.formatters.prettier_d'
+local stylua = require 'efmls-configs.formatters.stylua'
+
+-- default config file for prettier
+prettierd = vim.tbl_extend('force', prettierd, {
+    rootMarkers = {},
+    env = {
+        string.format(
+            'PRETTIERD_DEFAULT_CONFIG=%s',
+            vim.fn.expand '~/.config/nvim/utils/config/.prettierrc.json'
+        ),
+    },
+})
+
+-- extra args for isort
+isort = vim.tbl_extend('force', isort, {
+    arguments = {
+        '--profile',
+        'black',
+    },
+})
+
+local efmlangs = {
+    html = {
+        prettierd,
+    },
+    javascript = {
+        prettierd,
+    },
+    javascriptreact = {
+        prettierd,
+    },
+    lua = {
+        stylua,
+    },
+    markdown = {
+        markdownlint,
+    },
+    python = {
+        flake8,
+        black,
+        isort,
+    },
+    typescript = {
+        prettierd,
+    },
+    typescriptreact = {
+        prettierd,
+    },
+}
+
+local efmls = {
+    filetypes = vim.tbl_keys(efmlangs),
+    settings = {
+        rootMarkers = { '.git/' },
+        languages = efmlangs,
+    },
+    init_options = {
+        documentFormatting = true,
+        documentRangeFormatting = true,
     },
 }
 
@@ -86,11 +131,11 @@ null_ls.setup {
 -- Language server configuration
 -----------------------------------------------------------
 
--- Use null-ls configured formatting
+-- Use efm-ls configured formatting
 local lsp_formatter = function(bufnr)
     vim.lsp.buf.format {
         filter = function(client)
-            return client.name == 'null-ls'
+            return client.name == 'efm'
         end,
         bufnr = bufnr,
     }
@@ -202,6 +247,14 @@ mason_lspconfig.setup_handlers {
             capabilities = capabilities,
             flags = lsp_flags,
         }
+    end,
+    ['efm'] = function(server_name)
+        lspconfig[server_name].setup(vim.tbl_extend('force', efmls, {
+            on_attach = on_attach,
+            root_dir = root_dir,
+            capabilities = capabilities,
+            flags = lsp_flags,
+        }))
     end,
     ['jsonls'] = function(server_name)
         lspconfig[server_name].setup {

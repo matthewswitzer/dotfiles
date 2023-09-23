@@ -56,6 +56,9 @@ export HOMEBREW_NO_ENV_HINTS=1
 ## Docker
 export DOCKER_HOST=unix:///var/run/docker.sock
 
+## Go
+export GOPATH="$HOME/.go"
+
 ## Set neovim as the default editor
 if [ -x "$(command -v nvim)" ]; then
     export EDITOR=nvim

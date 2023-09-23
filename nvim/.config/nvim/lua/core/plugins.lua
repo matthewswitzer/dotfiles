@@ -154,8 +154,13 @@ return require('packer').startup(function(use)
         'williamboman/mason-lspconfig.nvim',
         'WhoIsSethDaniel/mason-tool-installer.nvim',
         'neovim/nvim-lspconfig',
-        'jose-elias-alvarez/null-ls.nvim',
         'b0o/schemastore.nvim',
+    }
+
+    -- efm-ls configs
+    use {
+        'creativenull/efmls-configs-nvim',
+        tag = 'v1.*',
     }
 
     -- autocompletion
