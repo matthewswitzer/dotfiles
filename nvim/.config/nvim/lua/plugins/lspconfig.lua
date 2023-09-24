@@ -96,6 +96,12 @@ local efmlangs = {
     javascriptreact = {
         prettierd,
     },
+    json = {
+        prettierd,
+    },
+    jsonc = {
+        prettierd,
+    },
     lua = {
         stylua,
     },
