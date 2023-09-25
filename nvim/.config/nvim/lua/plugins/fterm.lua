@@ -9,10 +9,13 @@ local fterm = require 'FTerm'
 -----------------------------------------------------------
 
 local defaults = {
+    blend = 3,
     border = 'rounded',
     dimensions = {
-        height = 0.9,
-        width = 0.9,
+        height = 0.95,
+        width = 0.965,
+        x = 0.17,
+        y = 0.35,
     },
 }
 
