@@ -12,8 +12,8 @@ local luasnip = require 'luasnip'
 -----------------------------------------------------------
 
 cmp.setup {
-    preselect = cmp.PreselectMode.None,
     completion = {
+        completeopt = 'menu,menuone,noinsert',
         keyword_length = 2,
     },
     window = {
@@ -43,6 +43,7 @@ cmp.setup {
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
         },
         ['<Tab>'] = function(fallback)
             if cmp.visible() then
