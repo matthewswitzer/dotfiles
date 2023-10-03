@@ -8,17 +8,17 @@ require('overseer').setup {
     },
     form = {
         win_opts = {
-            winblend = 3,
+            winblend = vim.o.winblend,
         },
     },
     confirm = {
         win_opts = {
-            winblend = 3,
+            winblend = vim.o.winblend,
         },
     },
     task_win = {
         win_opts = {
-            winblend = 3,
+            winblend = vim.o.winblend,
         },
     },
 }

@@ -35,6 +35,7 @@ require('telescope').setup {
             results = { '─', '│', '─', '│', '├', '┤', '╯', '╰' },
             preview = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
         },
+        winblend = vim.o.winblend,
         mappings = {
             i = {
                 ['<ESC>'] = require('telescope.actions').close,

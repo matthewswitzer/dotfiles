@@ -9,7 +9,7 @@ local fterm = require 'FTerm'
 -----------------------------------------------------------
 
 local defaults = {
-    blend = 3,
+    blend = vim.o.winblend,
     border = 'rounded',
     dimensions = {
         height = 0.95,

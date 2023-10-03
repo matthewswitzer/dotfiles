@@ -19,6 +19,7 @@ opt.laststatus = 3 -- enable global statusline
 opt.lazyredraw = true -- redraw screen only when we need to
 opt.mouse = 'a' -- enable mouse support
 opt.number = false -- don't show line numbers
+opt.pumblend = 3 -- add transparency to popup menus
 opt.pumheight = 10 -- show up to 10 items in the popup menu
 opt.scrolloff = 2 -- number of lines to keep above and below the cursor
 opt.signcolumn = 'yes' -- always show signcolumn
@@ -30,6 +31,7 @@ opt.timeoutlen = 500 -- wait 500ms for mapping sequences to complete
 opt.updatetime = 150 -- wait 150ms after typing to update
 opt.visualbell = true -- blink cursor on error instead of beeping
 opt.whichwrap:append '<,>,h,l' -- automatically wrap left and right
+opt.winblend = 3 -- add transparency to floating windows
 opt.wrap = true -- wrap lines
 
 -----------------------------------------------------------
