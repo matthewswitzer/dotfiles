@@ -19,7 +19,7 @@ require('onedark').setup {
         BufferLineIndicatorSelected = { fg = '$grey' },
         BufferLineOffset = { fg = '$fg', bg = '$bg_d', fmt = 'bold' },
         BufferLineSeparator = { fg = '#1e2127', bg = '#1e2127' },
-        IndentBlankLineChar = { fg = '$bg3' },
+        IblIndent = { fg = '$bg3' },
         NeoTreeVertSplit = { fg = '$bg3', bg = '$bg_d' },
         NeoTreeWinSeparator = { fg = '$bg3', bg = '$bg_d' },
         TelescopePromptBorder = { fg = '$light_grey' },
