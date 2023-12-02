@@ -259,6 +259,9 @@ map('n', '<Leader>t', '<Cmd>OverseerRun<CR>', { desc = 'Show Tasks' })
 -- Show running tasks with <Leader>T
 map('n', '<Leader>T', '<Cmd>OverseerToggle<CR>', { desc = 'Show Running Tasks' })
 
+-- Re-run last task with <Leader>R
+map('n', '<Leader>R', '<Cmd>OverseerRestartLast<CR>', { desc = 'Restart Last Task' })
+
 -----------------------------------------------------------
 -- Mason
 -----------------------------------------------------------
