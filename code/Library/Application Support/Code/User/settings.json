@@ -82,6 +82,10 @@
       "silent": true
     },
     {
+      "before": ["<Leader>", "a"],
+      "after": ["g", "g", "V", "G"]
+    },
+    {
       "before": ["<Leader>", "r", "n"],
       "commands": ["editor.action.rename"],
       "silent": true
