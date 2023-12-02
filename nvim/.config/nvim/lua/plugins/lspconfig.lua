@@ -87,6 +87,9 @@ isort = vim.tbl_extend('force', isort, {
 })
 
 local efmlangs = {
+    css = {
+        prettierd,
+    },
     html = {
         prettierd,
     },
@@ -112,6 +115,9 @@ local efmlangs = {
         flake8,
         black,
         isort,
+    },
+    scss = {
+        prettierd,
     },
     typescript = {
         prettierd,
