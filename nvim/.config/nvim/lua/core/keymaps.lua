@@ -34,6 +34,10 @@ map('n', '<Leader>j', '<C-w>j', { desc = 'Navigate to Bottom Window' })
 map('n', '<Leader>k', '<C-w>k', { desc = 'Navigate to Top Window' })
 map('n', '<Leader>l', '<C-w>l', { desc = 'Navigate to Right Window' })
 
+-- Resize split height with <Leader>{-,=}
+map('n', '<Leader>-', '5<C-w>-', { desc = 'Decrease Split Height' })
+map('n', '<Leader>=', '5<C-w>+', { desc = 'Increase Split Height' })
+
 -- Close windows with q
 map('n', 'q', '<Cmd>close<CR>', { desc = 'Close Window' })
 
