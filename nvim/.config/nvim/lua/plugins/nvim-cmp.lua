@@ -14,7 +14,7 @@ local luasnip = require 'luasnip'
 cmp.setup {
     preselect = cmp.PreselectMode.None,
     completion = {
-        keyword_length = 2,
+        keyword_length = 1,
     },
     window = {
         completion = cmp.config.window.bordered {
