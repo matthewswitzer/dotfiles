@@ -1,0 +1,51 @@
+"" Leader
+let mapleader=" "
+
+"" General
+set ignorecase             " ignore case when searching
+set incsearch              " search as characters are entered
+set number                 " show line numbers
+set showmode               " show the current mode on the status line
+set smartcase              " only ignore case if search pattern is all lowercase
+set visualbell             " show visualbell instead of beeping
+set wrapscan               " searches wrap around the end of file
+
+"" IdeaVim
+set ideajoin               " join command will be performed via IDE
+set idearefactormode=keep  " keep the mode that was enabled before refactoring
+set ideastatusicon=gray    " use gray version of the icon
+
+"" Plugins
+Plug 'easymotion/vim-easymotion'
+Plug 'kana/vim-textobj-entire'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+
+"" General Keymaps
+
+" clear search highlighting with <CR>
+nnoremap <silent> <CR> :noh<CR><CR>
+
+" move vertically by visual line (don't skip wrapped lines)
+nmap j gj
+nmap k gk
+
+" save files with <C-s>
+nnoremap <silent> <C-s> :update<CR>
+vnoremap <silent> <C-s> <C-c>:update<CR>gv
+inoremap <silent> <C-s> <C-o>:update<CR>
+
+" re-enter visual mode when indenting
+vnoremap > >gv
+vnoremap < <gv
+
+" select all lines with <Leader>a
+nnoremap <Leader>a ggVG
+
+"" SearchEverywhere Keymaps
+
+" search everywhere with <Leader>p
+nmap <Leader>p <Action>(SearchEverywhere)
+
+" find symbols with <Leader>s
+nmap <Leader>s <Action>(GotoSymbol)
