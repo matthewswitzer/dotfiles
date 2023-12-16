@@ -180,11 +180,6 @@ local on_attach = function(client, bufnr)
         buffer = bufnr,
         callback = function()
             lsp_formatter(bufnr)
-
-            -- formatting makes codelenses disappear, so refresh afterwards
-            if client.server_capabilities.codeLensProvider then
-                vim.lsp.codelens.refresh()
-            end
         end,
     })
 
@@ -201,20 +196,6 @@ local on_attach = function(client, bufnr)
             vim.diagnostic.open_float(nil, float_opts)
         end,
     })
-
-    -- automatically show and refresh codelens
-    if client.server_capabilities.codeLensProvider then
-        -- wait for the provider to be ready before the initial refresh
-        vim.wait(100, function()
-            vim.lsp.codelens.refresh()
-        end)
-
-        -- automatically refresh again on these events
-        vim.api.nvim_create_autocmd({ 'BufEnter', 'InsertLeave' }, {
-            buffer = bufnr,
-            callback = vim.lsp.codelens.refresh,
-        })
-    end
 
     -- mappings
     local opts = { noremap = true, silent = true, buffer = bufnr }
