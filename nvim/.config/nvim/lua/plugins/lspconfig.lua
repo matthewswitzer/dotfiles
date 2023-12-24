@@ -125,6 +125,9 @@ local efmlangs = {
     typescriptreact = {
         prettierd,
     },
+    yaml = {
+        prettierd,
+    },
 }
 
 local efmls = {
