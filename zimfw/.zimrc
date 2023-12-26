@@ -21,6 +21,9 @@ zmodule utility
 ## Exposes git repository status information to prompts
 zmodule git-info
 
+## Formats the current working directory to be used by prompts
+zmodule prompt-pwd
+
 ## A fork of the Powerline-inspired agnoster theme
 zmodule eriner
 
