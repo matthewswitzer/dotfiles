@@ -1,7 +1,9 @@
 -----------------------------------------------------------
--- Glow Configuration
+-- Utilities Configuration
 -----------------------------------------------------------
 
-require('glow').setup {
-    border = 'rounded',
+return {
+
+    -- async function library
+    { 'nvim-lua/plenary.nvim', lazy = true },
 }
