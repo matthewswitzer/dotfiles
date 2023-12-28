@@ -47,6 +47,7 @@
   "onedark.nvim": { "branch": "master", "commit": "c5476a091b0f1b4e853db91c91ff941f848a1cdd" },
   "overseer.nvim": { "branch": "master", "commit": "facb48fbd768c47d75d8be9f44ec948bbe4a6064" },
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
+  "rest.nvim": { "branch": "main", "commit": "45b52200b4a7712a68579d9d13945427e2764725" },
   "schemastore.nvim": { "branch": "main", "commit": "771c9517bf36f431361cbaac1ddc8499c7e5c5d3" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "20656efd7a0dbb4483290649c9671af14b0cfb0d" },
