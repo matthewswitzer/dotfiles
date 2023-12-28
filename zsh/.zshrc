@@ -88,7 +88,7 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
-## Load pipx autocompletions
+## Load pipx completions
 if type pipx &>/dev/null; then
     autoload -U bashcompinit
     bashcompinit
@@ -96,11 +96,15 @@ if type pipx &>/dev/null; then
     eval "$(register-python-argcomplete pipx)"
 fi
 
-## Load manually configured autocompletions
-if [ -d "$HOME/.zfunc/completions" ]; then
-    FPATH="$HOME/.zfunc/completions:$FPATH"
-
-    autoload -Uz compinit
-    compinit
+## Load Homebrew-managed completions
+if type brew &>/dev/null; then
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
+## Load manually configured completions
+if [ -d "$HOME/.zfunc/completions" ]; then
+    FPATH="$HOME/.zfunc/completions:$FPATH"
+fi
+
+## Initialize completion system
+autoload -Uz compinit && compinit
