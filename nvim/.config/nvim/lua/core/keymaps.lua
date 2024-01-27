@@ -33,6 +33,11 @@ map('n', '<Leader>j', '<C-w>j', { desc = 'Navigate to Bottom Window' })
 map('n', '<Leader>k', '<C-w>k', { desc = 'Navigate to Top Window' })
 map('n', '<Leader>l', '<C-w>l', { desc = 'Navigate to Right Window' })
 
+map('t', '<Leader>h', '<C-\\><C-n><C-w>h', { desc = 'Navigate to Left Window' })
+map('t', '<Leader>j', '<C-\\><C-n><C-w>j', { desc = 'Navigate to Bottom Window' })
+map('t', '<Leader>k', '<C-\\><C-n><C-w>k', { desc = 'Navigate to Top Window' })
+map('t', '<Leader>l', '<C-\\><C-n><C-w>l', { desc = 'Navigate to Right Window' })
+
 -- Resize split height with <Leader>{-,=}
 map('n', '<Leader>-', '5<C-w>-', { desc = 'Decrease Split Height' })
 map('n', '<Leader>=', '5<C-w>+', { desc = 'Increase Split Height' })
