@@ -49,6 +49,7 @@ return {
             },
             indent = {
                 enable = true,
+                disable = { 'python' },
             },
         },
         config = function(_, opts)
