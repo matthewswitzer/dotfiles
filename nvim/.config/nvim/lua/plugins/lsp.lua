@@ -403,7 +403,7 @@ return {
                         flags = lsp_flags,
                     }
                 end,
-                ['tsserver'] = function(server_name)
+                ['ts_ls'] = function(server_name)
                     lspconfig[server_name].setup {
                         on_attach = on_attach,
                         root_dir = root_dir,
