@@ -116,7 +116,5 @@
       "commands": ["editor.action.outdentLines"],
       "silent": true
     }
-  ],
-
-  "vsintellicode.features.python.deepLearning": "enabled"
+  ]
 }
