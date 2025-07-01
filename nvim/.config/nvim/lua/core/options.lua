@@ -45,7 +45,7 @@ opt.tabstop = 4 -- width that a <TAB> character displays as
 -----------------------------------------------------------
 -- Search
 -----------------------------------------------------------
-opt.hlsearch = false -- don't highlight matches
+opt.hlsearch = true -- highlight matches
 opt.ignorecase = true -- ignore case when searching
 opt.smartcase = true -- only ignore case if pattern is all lowercase
 
