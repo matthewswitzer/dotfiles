@@ -6,7 +6,7 @@ return {
 
     -- package manager
     {
-        'williamboman/mason.nvim',
+        'mason-org/mason.nvim',
         cmd = 'Mason',
         keys = {
             -- open mason with <leader>m
@@ -24,10 +24,10 @@ return {
         },
     },
 
-    -- auto installer
+    -- mason tool installer
     {
         'WhoIsSethDaniel/mason-tool-installer',
-        event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
+        event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
             'mason.nvim',
         },
@@ -67,14 +67,14 @@ return {
             require('mason-tool-installer').setup(opts)
 
             -- manually trigger :MasonToolsUpdate when the plugin is loaded
-            vim.cmd [[MasonToolsUpdate]]
+            vim.api.nvim_command 'MasonToolsUpdate'
         end,
     },
 
     -- lspconfig
     {
-        'williamboman/mason-lspconfig.nvim',
-        event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
+        'mason-org/mason-lspconfig.nvim',
+        event = { 'BufReadPre', 'BufNewFile' },
         dependencies = {
             'mason.nvim',
             'neovim/nvim-lspconfig',
@@ -218,18 +218,6 @@ return {
                 },
             }
 
-            local efmls = {
-                filetypes = vim.tbl_keys(efmlangs),
-                settings = {
-                    rootMarkers = { '.git/' },
-                    languages = efmlangs,
-                },
-                init_options = {
-                    documentFormatting = true,
-                    documentRangeFormatting = true,
-                },
-            }
-
             -- Use efm-ls configured formatting
             local lsp_formatter = function(bufnr)
                 vim.lsp.buf.format {
@@ -250,10 +238,7 @@ return {
                     return
                 end
 
-                vim.lsp.buf.execute_command {
-                    command = command,
-                    arguments = { vim.api.nvim_buf_get_name(bufnr) },
-                }
+                client:exec_command(command, { bufnr = bufnr })
             end
 
             local format_group = vim.api.nvim_create_augroup('LspFormatting', {})
@@ -302,10 +287,10 @@ return {
                 map('n', '<Leader>.', vim.lsp.buf.code_action, opts)
                 map('n', '<Leader>,', vim.lsp.codelens.run, opts)
                 map('n', ']g', function()
-                    vim.diagnostic.goto_next { float = false }
+                    vim.diagnostic.jump { count = 1, float = false }
                 end, opts)
                 map('n', '[g', function()
-                    vim.diagnostic.goto_prev { float = false }
+                    vim.diagnostic.jump { count = -1, float = false }
                 end, opts)
                 map('n', '<C-f>', function()
                     lsp_formatter(bufnr)
@@ -315,110 +300,88 @@ return {
                 end, opts)
             end
 
-            local root_dir = function()
-                return vim.fn.getcwd()
-            end
-
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
             local lsp_flags = { debounce_text_changes = 150 }
 
-            local lspconfig = require 'lspconfig'
-            require('mason-lspconfig').setup_handlers {
-                -- default handler
-                function(server_name)
-                    lspconfig[server_name].setup {
-                        on_attach = on_attach,
-                        root_dir = root_dir,
-                        capabilities = capabilities,
-                        flags = lsp_flags,
-                    }
-                end,
-                ['efm'] = function(server_name)
-                    lspconfig[server_name].setup(vim.tbl_extend('force', efmls, {
-                        on_attach = on_attach,
-                        root_dir = root_dir,
-                        capabilities = capabilities,
-                        flags = lsp_flags,
-                    }))
-                end,
-                ['jsonls'] = function(server_name)
-                    lspconfig[server_name].setup {
-                        on_attach = on_attach,
-                        root_dir = root_dir,
-                        capabilities = capabilities,
-                        flags = lsp_flags,
-                        settings = {
-                            json = {
-                                schemas = require('schemastore').json.schemas {
-                                    select = {
-                                        '.eslintrc',
-                                        'package.json',
-                                        'prettierrc.json',
-                                        'tsconfig.json',
-                                    },
-                                    replace = {
-                                        ['tsconfig.json'] = {
-                                            description = 'TypeScript compiler configuration file',
-                                            fileMatch = { 'tsconfig*.json' },
-                                            name = 'tsconfig.json',
-                                            url = 'https://json.schemastore.org/tsconfig.json',
-                                        },
-                                    },
-                                },
-                                validate = { enable = true },
+            -- apply the same settings to ALL server configurations
+            vim.lsp.config('*', {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                flags = lsp_flags,
+            })
+
+            -- efm
+            vim.lsp.config('efm', {
+                filetypes = vim.tbl_keys(efmlangs),
+                settings = {
+                    rootMarkers = { '.git/' },
+                    languages = efmlangs,
+                },
+                init_options = {
+                    documentFormatting = true,
+                    documentRangeFormatting = true,
+                },
+            })
+
+            -- jsonls
+            vim.lsp.config('jsonls', {
+                settings = {
+                    json = {
+                        schemas = require('schemastore').json.schemas {
+                            select = {
+                                '.eslintrc',
+                                'package.json',
+                                'prettierrc.json',
+                                'tsconfig.json',
                             },
-                        },
-                    }
-                end,
-                ['lua_ls'] = function(server_name)
-                    lspconfig[server_name].setup {
-                        on_attach = on_attach,
-                        root_dir = root_dir,
-                        capabilities = capabilities,
-                        flags = lsp_flags,
-                        settings = {
-                            Lua = {
-                                runtime = {
-                                    version = 'LuaJIT',
-                                },
-                                diagnostics = {
-                                    globals = { 'vim' },
-                                },
-                                workspace = {
-                                    library = vim.api.nvim_get_runtime_file('', true),
-                                },
-                                telemetry = {
-                                    enable = false,
+                            replace = {
+                                ['tsconfig.json'] = {
+                                    description = 'TypeScript compiler configuration file',
+                                    fileMatch = { 'tsconfig*.json' },
+                                    name = 'tsconfig.json',
+                                    url = 'https://json.schemastore.org/tsconfig.json',
                                 },
                             },
                         },
-                    }
-                end,
-                ['pyright'] = function(server_name)
-                    lspconfig[server_name].setup {
-                        on_attach = on_attach,
-                        root_dir = root_dir,
-                        capabilities = capabilities,
-                        flags = lsp_flags,
-                    }
-                end,
-                ['ts_ls'] = function(server_name)
-                    lspconfig[server_name].setup {
-                        on_attach = on_attach,
-                        root_dir = root_dir,
-                        capabilities = capabilities,
-                        flags = lsp_flags,
-                        typescript = {
-                            tsserver = {
-                                experimental = {
-                                    enableProjectDiagnostics = true,
-                                },
-                            },
+                        validate = { enable = true },
+                    },
+                },
+            })
+
+            -- lua_ls
+            vim.lsp.config('lua_ls', {
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = 'LuaJIT',
                         },
-                    }
-                end,
-            }
+                        diagnostics = {
+                            globals = { 'vim' },
+                        },
+                        workspace = {
+                            library = vim.api.nvim_get_runtime_file('', true),
+                        },
+                        telemetry = {
+                            enable = false,
+                        },
+                    },
+                },
+            })
+
+            -- typescript-language-server
+            vim.lsp.config('ts_ls', {
+                typescript = {
+                    tsserver = {
+                        experimental = {
+                            enableProjectDiagnostics = true,
+                        },
+                    },
+                },
+            })
+
+            require('mason').setup()
+            require('mason-lspconfig').setup()
         end,
     },
 }
