@@ -27,16 +27,17 @@ map('n', '<CR>', ':nohl<CR><CR>', { desc = 'Clear Search Highlights' })
 map('n', 'j', 'gj', { noremap = false, desc = 'Move Down' })
 map('n', 'k', 'gk', { noremap = false, desc = 'Move Up' })
 
--- Navigate splits with <Leader>{h,j,k,l}
+-- Navigate splits in normal with <Leader>{h,j,k,l}
 map('n', '<Leader>h', '<C-w>h', { desc = 'Navigate to Left Window' })
 map('n', '<Leader>j', '<C-w>j', { desc = 'Navigate to Bottom Window' })
 map('n', '<Leader>k', '<C-w>k', { desc = 'Navigate to Top Window' })
 map('n', '<Leader>l', '<C-w>l', { desc = 'Navigate to Right Window' })
 
-map('t', '<Leader>h', '<C-\\><C-n><C-w>h', { desc = 'Navigate to Left Window' })
-map('t', '<Leader>j', '<C-\\><C-n><C-w>j', { desc = 'Navigate to Bottom Window' })
-map('t', '<Leader>k', '<C-\\><C-n><C-w>k', { desc = 'Navigate to Top Window' })
-map('t', '<Leader>l', '<C-\\><C-n><C-w>l', { desc = 'Navigate to Right Window' })
+-- Navigate splits in terminal with <C-{h,j,k,l}>
+map('t', '<C-h>', '<C-\\><C-n><C-w>h', { desc = 'Navigate to Left Window' })
+map('t', '<C-j>', '<C-\\><C-n><C-w>j', { desc = 'Navigate to Bottom Window' })
+map('t', '<C-k>', '<C-\\><C-n><C-w>k', { desc = 'Navigate to Top Window' })
+map('t', '<C-l>', '<C-\\><C-n><C-w>l', { desc = 'Navigate to Right Window' })
 
 -- Resize split height with <Leader>{-,=}
 map('n', '<Leader>-', '5<C-w>-', { desc = 'Decrease Split Height' })
