@@ -19,6 +19,7 @@ return {
         cmd = { 'TSUpdateSync', 'TSUpdate', 'TSInstall' },
         opts = {
             ensure_installed = {
+                'awk',
                 'bash',
                 'css',
                 'dockerfile',

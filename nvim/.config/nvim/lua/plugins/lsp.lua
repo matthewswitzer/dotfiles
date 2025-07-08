@@ -34,6 +34,7 @@ return {
         opts = {
             ensure_installed = {
                 -- LSP
+                'awk-language-server',
                 'bash-language-server',
                 'css-lsp',
                 'dockerfile-language-server',
@@ -175,6 +176,9 @@ return {
             })
 
             local efmlangs = {
+                awk = {
+                    prettierd,
+                },
                 css = {
                     prettierd,
                 },
