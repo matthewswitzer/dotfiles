@@ -148,7 +148,7 @@ return {
                 dapui.close()
 
                 if debug_tab and vim.api.nvim_tabpage_is_valid(debug_tab) then
-                    vim.api.nvim_exec('tabclose ' .. debug_tabnr, false)
+                    vim.api.nvim_exec2('tabclose ' .. debug_tabnr, { output = false })
                 end
 
                 debug_win = nil
