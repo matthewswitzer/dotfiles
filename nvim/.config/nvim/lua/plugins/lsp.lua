@@ -202,6 +202,7 @@ return {
                 },
                 markdown = {
                     markdownlint,
+                    prettierd,
                 },
                 python = {
                     flake8,
