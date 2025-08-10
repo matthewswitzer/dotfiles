@@ -7,8 +7,9 @@ return {
     -- treesitter integration
     {
         'nvim-treesitter/nvim-treesitter',
+        branch = 'master',
+        lazy = false,
         build = ':TSUpdate',
-        event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
         init = function(plugin)
             require('lazy.core.loader').add_to_rtp(plugin)
             require 'nvim-treesitter.query_predicates'
@@ -16,7 +17,6 @@ return {
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
-        cmd = { 'TSUpdateSync', 'TSUpdate', 'TSInstall' },
         opts = {
             ensure_installed = {
                 'awk',
@@ -31,8 +31,10 @@ return {
                 'jsdoc',
                 'json',
                 'jsonc',
+                'latex',
                 'lua',
                 'markdown',
+                'markdown_inline',
                 'python',
                 'regex',
                 'scss',
@@ -40,6 +42,7 @@ return {
                 'toml',
                 'tsx',
                 'typescript',
+                'typst',
                 'vim',
                 'vimdoc',
                 'yaml',
@@ -64,6 +67,25 @@ return {
         event = { 'BufReadPost', 'BufNewFile', 'BufWritePre' },
         opts = {
             max_lines = 2,
+        },
+    },
+
+    -- markdown preview
+    {
+        'OXY2DEV/markview.nvim',
+        lazy = false,
+        priority = 49,
+        keys = {
+            {
+                '<Leader>m',
+                '<Cmd>Markview Toggle<CR>',
+                desc = 'Toggle Markdown Preview',
+            },
+        },
+        opts = {
+            preview = {
+                icon_provider = 'nvim-web-devicons',
+            },
         },
     },
 }

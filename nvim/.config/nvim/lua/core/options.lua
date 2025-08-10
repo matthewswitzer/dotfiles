@@ -32,7 +32,7 @@ opt.updatetime = 150 -- wait 150ms after typing to update
 opt.visualbell = true -- blink cursor on error instead of beeping
 opt.whichwrap:append '<,>,h,l' -- automatically wrap left and right
 opt.winblend = 3 -- add transparency to floating windows
-opt.wrap = true -- wrap lines
+opt.wrap = false -- don't wrap lines
 
 -----------------------------------------------------------
 -- Indentation
