@@ -2,6 +2,14 @@
 -- User Interface Configuration
 -----------------------------------------------------------
 
+-- determine unix icon for statusline
+local unix_icon
+if vim.fn.has 'macunix' then
+    unix_icon = ''
+else
+    unix_icon = ''
+end
+
 return {
 
     -- icons
@@ -30,6 +38,16 @@ return {
                             readonly = '󰌾',
                         },
                     },
+                },
+                lualine_x = {
+                    'encoding',
+                    {
+                        'fileformat',
+                        symbols = {
+                            unix = unix_icon,
+                        },
+                    },
+                    'filetype',
                 },
                 lualine_y = { 'os.date("%a %b %d %I:%M %p")' },
             },
