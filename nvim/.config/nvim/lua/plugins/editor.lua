@@ -63,6 +63,13 @@ return {
                 '<Cmd>Telescope diagnostics<CR>',
                 desc = 'Show Workspace Diagnostics',
             },
+
+            -- Use telescope interface for spell suggestions
+            {
+                'z=',
+                '<Cmd>Telescope spell_suggest<CR>',
+                desc = 'Show Spelling Suggestions',
+            },
         },
         opts = function()
             local actions = require 'telescope.actions'

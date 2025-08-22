@@ -15,6 +15,7 @@ return {
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
+            'f3fora/cmp-spell',
             'L3MON4D3/LuaSnip',
             'saadparwaiz1/cmp_luasnip',
             'rafamadriz/friendly-snippets',
@@ -78,12 +79,24 @@ return {
                     end,
                 },
                 sources = {
-                    { name = 'nvim_lsp_signature_help', priority = 5 },
-                    { name = 'nvim_lsp', priority = 4 },
-                    { name = 'nvim_lua', priority = 4 },
-                    { name = 'luasnip', priority = 3 },
-                    { name = 'path', priority = 2 },
-                    { name = 'buffer', priority = 1, keyword_length = 3 },
+                    { name = 'nvim_lsp_signature_help', priority = 6 },
+                    { name = 'nvim_lsp', priority = 5 },
+                    { name = 'nvim_lua', priority = 5 },
+                    { name = 'luasnip', priority = 4 },
+                    { name = 'path', priority = 3 },
+                    { name = 'buffer', priority = 2, keyword_length = 3 },
+                    {
+                        name = 'spell',
+                        priority = 1,
+                        keyword_length = 3,
+                        option = {
+                            keep_all_entries = false,
+                            enable_in_context = function()
+                                return true
+                            end,
+                            preselect_correct_word = false,
+                        },
+                    },
                 },
             }
         end,
