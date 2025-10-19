@@ -174,6 +174,7 @@ return {
                         '.DS_Store',
                         '.git',
                         '.venv',
+                        '__pycache__',
                     },
                 },
                 follow_current_file = true,
