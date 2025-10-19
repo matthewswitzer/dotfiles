@@ -39,7 +39,7 @@ return {
                 'css-lsp',
                 'dockerfile-language-server',
                 'efm',
-                'emmet-ls',
+                'emmet-language-server',
                 'eslint-lsp',
                 'html-lsp',
                 'json-lsp',
