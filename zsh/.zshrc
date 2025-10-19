@@ -59,6 +59,10 @@ export DOCKER_HOST=unix:///var/run/docker.sock
 ## Go
 export GOPATH="$HOME/.go"
 
+## Java
+export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export JAVA_HOME=`/usr/libexec/java_home`
+
 ## Set neovim as the default editor
 if [ -x "$(command -v nvim)" ]; then
     export EDITOR=nvim
