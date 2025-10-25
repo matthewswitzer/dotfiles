@@ -49,7 +49,6 @@ return {
                     },
                     'filetype',
                 },
-                lualine_y = { 'os.date("%a %b %d %I:%M %p")' },
             },
             extensions = {
                 'neo-tree',
