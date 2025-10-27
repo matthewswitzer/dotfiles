@@ -82,7 +82,9 @@ return {
                 local ftype = vim.filetype.match { filename = buf }
                 local exec = runners[ftype]
                 if exec ~= nil then
-                    require('FTerm').scratch { cmd = { exec, buf } }
+                    require('FTerm').scratch(vim.tbl_extend('force', opts, {
+                        cmd = { exec, buf },
+                    }))
                 end
             end, { bang = true })
 
