@@ -7,7 +7,7 @@ return {
     -- autocompletion
     {
         'hrsh7th/nvim-cmp',
-        event = 'InsertEnter',
+        lazy = false,
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
             'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -46,6 +46,19 @@ return {
                 formatting = {
                     format = lspkind.cmp_format {
                         mode = 'symbol_text',
+                        menu = {
+                            buffer = '[Buf]',
+                            nvim_lsp = '[LSP]',
+                            nvim_lua = '[Lua]',
+                            neopyter = '[Neopyter]',
+                        },
+                        symbol_map = {
+                            ['Magic'] = '🪄',
+                            ['Path'] = '📁',
+                            ['Dict key'] = '🔑',
+                            ['Instance'] = '󱃻',
+                            ['Statement'] = '󱇯',
+                        },
                     },
                 },
                 mapping = {
@@ -78,9 +91,10 @@ return {
                     end,
                 },
                 sources = {
-                    { name = 'nvim_lsp_signature_help', priority = 5 },
-                    { name = 'nvim_lsp', priority = 4 },
+                    { name = 'nvim_lsp_signature_help', priority = 6 },
+                    { name = 'nvim_lsp', priority = 5 },
                     { name = 'nvim_lua', priority = 4 },
+                    { name = 'neopyter', priority = 4 },
                     { name = 'luasnip', priority = 3 },
                     { name = 'path', priority = 2 },
                     { name = 'buffer', priority = 1, keyword_length = 3 },

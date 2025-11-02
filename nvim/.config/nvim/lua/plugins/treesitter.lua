@@ -36,6 +36,7 @@ return {
                 'markdown',
                 'markdown_inline',
                 'python',
+                'r',
                 'regex',
                 'scss',
                 'sql',

@@ -367,4 +367,51 @@ return {
             },
         },
     },
+
+    -- jupyter
+    {
+        'SUSTech-data/neopyter',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-treesitter/nvim-treesitter',
+            'AbaoFromCUG/websocket.nvim',
+        },
+        opts = {
+            mode = 'direct',
+            remote_address = '127.0.0.1:9001',
+            file_pattern = { '*.ju.*' },
+            on_attach = function(bufnr)
+                local function map(mode, lhs, rhs, desc)
+                    vim.keymap.set(mode, lhs, rhs, { desc = desc, buffer = bufnr })
+                end
+
+                map('n', '<M-l>', '<Cmd>Neopyter run current<CR>', 'Run Notebook Cell')
+                map(
+                    'n',
+                    '<M-k>',
+                    '<Cmd>Neopyter run allAbove<CR>',
+                    'Run Notebook Cells Above'
+                )
+                map(
+                    'n',
+                    '<M-j>',
+                    '<Cmd>Neopyter run allBelow<CR>',
+                    'Run Notebook Cells Below'
+                )
+                map(
+                    'n',
+                    '<M-Enter>',
+                    '<Cmd>Neopyter run all<CR>',
+                    'Run All Notebook Cells'
+                )
+                map('n', '<M-r>', '<Cmd>Neopyter kernel restart<CR>', 'Restart Kernel')
+                map(
+                    'n',
+                    '<M-R>',
+                    '<Cmd>Neopyter kernel restartRunAll<CR>',
+                    'Restart Kernel and Run All Cells'
+                )
+            end,
+        },
+    },
 }
