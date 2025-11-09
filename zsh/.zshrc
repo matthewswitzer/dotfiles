@@ -63,6 +63,11 @@ export GOPATH="$HOME/.go"
 export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home`
 
+## Enter tmux session by default
+if [[ -x "$(command -v tmux)" && -z "$TMUX_PANE" ]]; then
+    tmux new-session -A -s "${USER}"
+fi
+
 ## Set neovim as the default editor
 if [ -x "$(command -v nvim)" ]; then
     export EDITOR=nvim
