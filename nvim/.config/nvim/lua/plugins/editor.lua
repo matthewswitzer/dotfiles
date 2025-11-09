@@ -385,7 +385,12 @@ return {
                     vim.keymap.set(mode, lhs, rhs, { desc = desc, buffer = bufnr })
                 end
 
-                map('n', '<M-l>', '<Cmd>Neopyter run current<CR>', 'Run Notebook Cell')
+                map(
+                    'n',
+                    '<M-Enter>',
+                    '<Cmd>Neopyter run current<CR>',
+                    'Run Notebook Cell'
+                )
                 map(
                     'n',
                     '<M-k>',
@@ -398,12 +403,7 @@ return {
                     '<Cmd>Neopyter run allBelow<CR>',
                     'Run Notebook Cells Below'
                 )
-                map(
-                    'n',
-                    '<M-Enter>',
-                    '<Cmd>Neopyter run all<CR>',
-                    'Run All Notebook Cells'
-                )
+                map('n', '<M-a>', '<Cmd>Neopyter run all<CR>', 'Run All Notebook Cells')
                 map('n', '<M-r>', '<Cmd>Neopyter kernel restart<CR>', 'Restart Kernel')
                 map(
                     'n',
