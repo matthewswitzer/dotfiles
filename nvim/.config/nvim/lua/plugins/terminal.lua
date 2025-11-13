@@ -45,6 +45,7 @@ return {
         },
         config = function(_, opts)
             local command = vim.api.nvim_create_user_command
+            local fterm = require 'FTerm'
 
             -- :FTerm{Open,Close,Exit,Toggle}
             command('FTermOpen', require('FTerm').open, { bang = true })
@@ -53,23 +54,21 @@ return {
             command('FTermToggle', require('FTerm').toggle, { bang = true })
 
             -- :LazygitToggle
+            local lazygit = fterm:new(vim.tbl_extend('force', opts, {
+                ft = 'customterm',
+                cmd = 'lazygit',
+            }))
             command('LazygitToggle', function()
-                require('FTerm')
-                    :new(vim.tbl_extend('force', opts, {
-                        ft = 'lazyterm',
-                        cmd = 'lazygit',
-                    }))
-                    :toggle()
+                lazygit:toggle()
             end, { bang = true })
 
             -- :LazydockerToggle
+            local lazydocker = fterm:new(vim.tbl_extend('force', opts, {
+                ft = 'customterm',
+                cmd = 'lazydocker',
+            }))
             command('LazydockerToggle', function()
-                require('FTerm')
-                    :new(vim.tbl_extend('force', opts, {
-                        ft = 'lazyterm',
-                        cmd = 'lazydocker',
-                    }))
-                    :toggle()
+                lazydocker:toggle()
             end, { bang = true })
 
             -- :FTermRunCode
@@ -89,14 +88,14 @@ return {
                 end
             end, { bang = true })
 
-            -- Map `q` to quit and `<Esc>` to <Esc> on lazygit and lazydocker terminals
+            -- Map `q` to quit and `<Esc>` to <Esc> on custom terminals
             vim.api.nvim_create_autocmd('TermOpen', {
                 group = vim.api.nvim_create_augroup('FTerm', { clear = true }),
                 callback = function(data)
                     local buf = data.buf
-                    if vim.bo[buf].filetype == 'lazyterm' then
+                    if vim.bo[buf].filetype == 'customterm' then
                         vim.keymap.set(
-                            'n',
+                            't',
                             'q',
                             '<Cmd>close<CR>',
                             { buffer = buf, noremap = true, silent = true }
