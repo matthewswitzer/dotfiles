@@ -26,6 +26,9 @@ return {
             -- Toggle lazydocker with <Leader>D
             { '<Leader>D', '<Cmd>LazydockerToggle<CR>', desc = 'Toggle Lazydocker' },
 
+            -- Toggle posting with <Leader>P
+            { '<Leader>P', '<Cmd>PostingToggle<CR>', desc = 'Toggle Posting' },
+
             -- Run code in current buffer with <Leader><Enter>
             {
                 '<Leader><Enter>',
@@ -69,6 +72,15 @@ return {
             }))
             command('LazydockerToggle', function()
                 lazydocker:toggle()
+            end, { bang = true })
+
+            -- :PostingToggle
+            local posting = fterm:new(vim.tbl_extend('force', opts, {
+                ft = 'customterm',
+                cmd = 'posting',
+            }))
+            command('PostingToggle', function()
+                posting:toggle()
             end, { bang = true })
 
             -- :FTermRunCode

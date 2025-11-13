@@ -1,0 +1,10 @@
+name: onedark # use this name in your config file
+primary: '#4fa6ed' # buttons, fixed table columns
+secondary: '#c678dd' # method selector, some minor labels
+accent: '#a0a8b7' # header text, scrollbars, cursors, focus highlights
+background: '#282c34' # background colors
+surface: '#31353f' # panels, etc
+error: '#e86671' # error messages
+success: '#98c379' # success messages
+warning: '#e5c07b' # warning messages
+
