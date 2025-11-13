@@ -171,6 +171,7 @@ return {
                     hide_dotfiles = false,
                     hide_by_name = {
                         '.git',
+                        '.posting',
                         '.venv',
                         '__pycache__',
                         'node_modules',

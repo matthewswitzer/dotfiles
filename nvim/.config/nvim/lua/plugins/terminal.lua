@@ -77,7 +77,13 @@ return {
             -- :PostingToggle
             local posting = fterm:new(vim.tbl_extend('force', opts, {
                 ft = 'customterm',
-                cmd = 'posting',
+                cmd = function()
+                    local cwd = vim.loop.cwd()
+                    local colname = '.posting'
+                    local colpath = cwd .. '/' .. colname
+                    os.execute('mkdir -p ' .. colpath)
+                    return { 'posting', '--collection', colpath }
+                end,
             }))
             command('PostingToggle', function()
                 posting:toggle()
