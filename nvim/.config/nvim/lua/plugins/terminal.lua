@@ -106,7 +106,7 @@ return {
                 end
             end, { bang = true })
 
-            -- Map `q` to quit and `<Esc>` to <Esc> on custom terminals
+            -- Map `<C-c>` to quit and `<Esc>` to <Esc> on custom terminals
             vim.api.nvim_create_autocmd('TermOpen', {
                 group = vim.api.nvim_create_augroup('FTerm', { clear = true }),
                 callback = function(data)
@@ -114,7 +114,7 @@ return {
                     if vim.bo[buf].filetype == 'customterm' then
                         vim.keymap.set(
                             't',
-                            'q',
+                            '<C-c>',
                             '<Cmd>close<CR>',
                             { buffer = buf, noremap = true, silent = true }
                         )
