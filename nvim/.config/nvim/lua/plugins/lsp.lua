@@ -227,7 +227,12 @@ return {
             local lsp_formatter = function(bufnr)
                 vim.lsp.buf.format {
                     filter = function(client)
-                        return client.name == 'efm'
+                        local ftype = vim.filetype.match { buf = bufnr }
+                        if efmlangs[ftype] ~= nil then
+                            return client.name == 'efm'
+                        else
+                            return client.name == ftype
+                        end
                     end,
                     bufnr = bufnr,
                 }
