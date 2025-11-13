@@ -169,11 +169,15 @@ return {
             filesystem = {
                 filtered_items = {
                     hide_dotfiles = false,
-                    never_show = {
-                        '.DS_Store',
+                    hide_by_name = {
                         '.git',
                         '.venv',
                         '__pycache__',
+                        'node_modules',
+                    },
+                    never_show = {
+                        '.DS_Store',
+                        'thumbs.db',
                     },
                 },
                 follow_current_file = true,
