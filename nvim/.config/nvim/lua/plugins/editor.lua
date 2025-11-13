@@ -336,38 +336,6 @@ return {
         end,
     },
 
-    -- http client
-    {
-        'rest-nvim/rest.nvim',
-        version = 'v1.x.x',
-        ft = 'http',
-        dependencies = {
-            'plenary.nvim',
-        },
-        keys = {
-            -- Run the HTTP request under the cursor with <Leader>//
-            { '<Leader>//', '<Plug>RestNvim', desc = 'Run HTTP Request' },
-
-            -- Preview the cURL command with <Leader>/?
-            { '<Leader>/?', '<Plug>RestNvimPreview', desc = 'Preview cURL Command' },
-
-            -- Re-run the last HTTP request with <Leader>?
-            { '<Leader>?', '<Plug>RestNvimLast', desc = 'Re-run HTTP Request' },
-        },
-        opts = {
-            result = {
-                formatters = {
-                    json = function(body)
-                        return vim.fn.system({ 'prettierd', '.json' }, body)
-                    end,
-                    html = function(body)
-                        return vim.fn.system({ 'prettierd', '.html' }, body)
-                    end,
-                },
-            },
-        },
-    },
-
     -- jupyter
     {
         'SUSTech-data/neopyter',
