@@ -74,16 +74,17 @@ return {
 
             -- :FTermRunCode
             command('FTermRunCode', function()
-                local runners = {
-                    javascript = 'node',
-                    python = 'python',
-                }
                 local buf = vim.api.nvim_buf_get_name(0)
-                local ftype = vim.filetype.match { filename = buf }
+                local runners = {
+                    javascript = { 'node', buf },
+                    typescript = { 'npx', 'tsx', buf },
+                    python = { 'python', buf },
+                }
+                local ftype = vim.filetype.match { buf = 0 }
                 local exec = runners[ftype]
                 if exec ~= nil then
                     require('FTerm').scratch(vim.tbl_extend('force', opts, {
-                        cmd = { exec, buf },
+                        cmd = exec,
                     }))
                 end
             end, { bang = true })
