@@ -53,12 +53,10 @@ return {
                 'debugpy',
 
                 -- Linter
-                'flake8',
+                'ruff',
                 'markdownlint',
 
                 -- Formatter
-                'black',
-                'isort',
                 'prettierd',
                 'stylua',
             },
@@ -147,13 +145,12 @@ return {
         end,
         config = function()
             -- linters
-            local flake8 = require 'efmls-configs.linters.flake8'
             local markdownlint = require 'efmls-configs.linters.markdownlint'
 
             -- formatters
-            local black = require 'efmls-configs.formatters.black'
-            local isort = require 'efmls-configs.formatters.isort'
             local prettierd = require 'efmls-configs.formatters.prettier_d'
+            local ruff_format = require 'efmls-configs.formatters.ruff'
+            local ruff_sort = require 'efmls-configs.formatters.ruff_sort'
             local stylua = require 'efmls-configs.formatters.stylua'
 
             -- default config file for prettier
@@ -164,14 +161,6 @@ return {
                         'PRETTIERD_DEFAULT_CONFIG=%s',
                         vim.fn.expand '~/.config/nvim/utils/config/.prettierrc.json'
                     ),
-                },
-            })
-
-            -- extra args for isort
-            isort = vim.tbl_extend('force', isort, {
-                arguments = {
-                    '--profile',
-                    'black',
                 },
             })
 
@@ -205,9 +194,8 @@ return {
                     prettierd,
                 },
                 python = {
-                    flake8,
-                    black,
-                    isort,
+                    ruff_format,
+                    ruff_sort,
                 },
                 scss = {
                     prettierd,
