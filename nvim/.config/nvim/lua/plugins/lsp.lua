@@ -35,6 +35,7 @@ return {
             ensure_installed = {
                 -- LSP
                 'awk-language-server',
+                'basedpyright',
                 'bash-language-server',
                 'css-lsp',
                 'dockerfile-language-server',
@@ -44,7 +45,6 @@ return {
                 'html-lsp',
                 'json-lsp',
                 'lua-language-server',
-                'pyright',
                 'stylelint-lsp',
                 'typescript-language-server',
                 'yaml-language-server',
