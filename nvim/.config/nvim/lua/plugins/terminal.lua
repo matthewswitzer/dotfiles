@@ -17,8 +17,8 @@ return {
                 desc = 'Toggle Terminal',
             },
 
-            -- Close the terminal with <Esc>
-            { '<Esc>', '<Cmd>FTermClose<CR>', mode = 't', desc = 'Close Terminal' },
+            -- Exit the terminal with <Esc>
+            { '<Esc>', '<Cmd>FTermExit<CR>', mode = 't', desc = 'Exit Terminal' },
 
             -- Toggle lazygit with <Leader>G
             { '<Leader>G', '<Cmd>LazygitToggle<CR>', desc = 'Toggle Lazygit' },

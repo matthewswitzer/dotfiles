@@ -336,6 +336,33 @@ return {
         end,
     },
 
+    -- venv selector
+    {
+        'linux-cultist/venv-selector.nvim',
+        dependencies = {
+            'neovim/nvim-lspconfig',
+            'telescope.nvim',
+        },
+        ft = 'python',
+        keys = {
+            { '<Leader>v', '<Cmd>VenvSelect<CR>' },
+        },
+        opts = {
+            options = {
+                statusline_func = {
+                    lualine = function()
+                        local separator = package.config:sub(1, 1)
+                        local venv_path =
+                            require('venv-selector').venv():gsub(separator .. '.venv', '')
+                        local venv_name = vim.fs.basename(venv_path)
+
+                        return venv_name
+                    end,
+                },
+            },
+        },
+    },
+
     -- jupyter
     {
         'SUSTech-data/neopyter',

@@ -30,6 +30,16 @@ return {
         end,
         opts = {
             sections = {
+                lualine_b = {
+                    'branch',
+                    'diff',
+                    'diagnostics',
+                    {
+                        'venv-selector',
+                        icon = '',
+                        color = { fg = '#e5c07b' },
+                    },
+                },
                 lualine_c = {
                     {
                         'filename',
