@@ -182,6 +182,7 @@ return {
                     hide_by_name = {
                         '.git',
                         '.posting',
+                        '.pytest_cache',
                         '.venv',
                         '__pycache__',
                         'node_modules',
