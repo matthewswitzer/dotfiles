@@ -53,8 +53,8 @@ return {
                 'debugpy',
 
                 -- Linter
-                'ruff',
                 'markdownlint',
+                'ruff',
                 'yamllint',
 
                 -- Formatter
