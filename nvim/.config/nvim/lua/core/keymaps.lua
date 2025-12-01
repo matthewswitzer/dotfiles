@@ -38,8 +38,8 @@ map('n', '<Leader>-', '5<C-w>-', { desc = 'Decrease Split Height' })
 map('n', '<Leader>=', '5<C-w>+', { desc = 'Increase Split Height' })
 
 -- Resize split width with <Leader>{_,+}
-map('n', '<Leader>_', '5<C-w>>', { desc = 'Decrease Split Width' })
-map('n', '<Leader>+', '5<C-w><', { desc = 'Increase Split Width' })
+map('n', '<Leader>_', '5<C-w><', { desc = 'Decrease Split Width' })
+map('n', '<Leader>+', '5<C-w>>', { desc = 'Increase Split Width' })
 
 -- Close windows with q
 map('n', 'q', '<Cmd>close<CR>', { desc = 'Close Window' })
