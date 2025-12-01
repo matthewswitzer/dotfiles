@@ -55,6 +55,7 @@ return {
                 -- Linter
                 'ruff',
                 'markdownlint',
+                'yamllint',
 
                 -- Formatter
                 'prettierd',
@@ -146,6 +147,7 @@ return {
         config = function()
             -- linters
             local markdownlint = require 'efmls-configs.linters.markdownlint'
+            local yamllint = require 'efmls-configs.linters.yamllint'
 
             -- formatters
             local prettierd = require 'efmls-configs.formatters.prettier_d'
@@ -208,6 +210,7 @@ return {
                 },
                 yaml = {
                     prettierd,
+                    yamllint,
                 },
             }
 
