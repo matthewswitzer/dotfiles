@@ -45,6 +45,7 @@ return {
                 'html-lsp',
                 'json-lsp',
                 'lua-language-server',
+                'sqlls',
                 'stylelint-lsp',
                 'typescript-language-server',
                 'yaml-language-server',
@@ -59,6 +60,7 @@ return {
 
                 -- Formatter
                 'prettierd',
+                'sqruff',
                 'stylua',
             },
             auto_update = true,
@@ -153,6 +155,7 @@ return {
             local prettierd = require 'efmls-configs.formatters.prettier_d'
             local ruff_format = require 'efmls-configs.formatters.ruff'
             local ruff_sort = require 'efmls-configs.formatters.ruff_sort'
+            local sqruff = require 'efmls-configs.formatters.sqruff'
             local stylua = require 'efmls-configs.formatters.stylua'
 
             -- default config file for prettier
@@ -201,6 +204,9 @@ return {
                 },
                 scss = {
                     prettierd,
+                },
+                sql = {
+                    sqruff,
                 },
                 typescript = {
                     prettierd,
