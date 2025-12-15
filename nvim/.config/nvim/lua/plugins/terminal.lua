@@ -135,6 +135,7 @@ return {
     -- task runner
     {
         'stevearc/overseer.nvim',
+        tag = 'v1.6.0',
         keys = {
             -- Show available task to run with <Leader>t
             { '<Leader>t', '<Cmd>OverseerRun<CR>', desc = 'Show Tasks' },
