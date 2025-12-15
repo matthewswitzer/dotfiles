@@ -45,7 +45,6 @@ return {
                 'html-lsp',
                 'json-lsp',
                 'lua-language-server',
-                'sqlls',
                 'stylelint-lsp',
                 'typescript-language-server',
                 'yaml-language-server',
