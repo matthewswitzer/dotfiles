@@ -180,14 +180,14 @@ return {
                 filtered_items = {
                     hide_dotfiles = false,
                     hide_by_name = {
-                        '.git',
                         '.posting',
                         '.pytest_cache',
                         '.venv',
-                        '__pycache__',
                         'node_modules',
                     },
                     never_show = {
+                        '.git',
+                        '__pycache__',
                         '.DS_Store',
                         'thumbs.db',
                     },
