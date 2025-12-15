@@ -281,6 +281,9 @@ return {
                     end,
                 })
 
+                -- show inlay hints
+                vim.lsp.inlay_hint.enable(true, { bufnr })
+
                 -- mappings
                 local opts = { noremap = true, silent = true, buffer = bufnr }
                 local map = vim.keymap.set
@@ -316,6 +319,22 @@ return {
                 on_attach = on_attach,
                 capabilities = capabilities,
                 flags = lsp_flags,
+            })
+
+            -- basedpyright
+            vim.lsp.config('basedpyright', {
+                settings = {
+                    basedpyright = {
+                        disableOrganizeImports = true,
+                        analysis = {
+                            diagnosticMode = 'workspace',
+                            inlayHints = {
+                                variableTypes = false,
+                                functionReturnTypes = false,
+                            },
+                        },
+                    },
+                },
             })
 
             -- efm
