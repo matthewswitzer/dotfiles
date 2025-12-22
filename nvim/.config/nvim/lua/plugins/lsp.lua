@@ -328,7 +328,6 @@ return {
                         analysis = {
                             diagnosticMode = 'workspace',
                             inlayHints = {
-                                variableTypes = false,
                                 functionReturnTypes = false,
                             },
                         },
