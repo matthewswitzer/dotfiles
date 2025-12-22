@@ -154,6 +154,17 @@ return {
         end,
     },
 
+    -- peek preview
+    {
+        'dnlhc/glance.nvim',
+        cmd = 'Glance',
+        config = {
+            preview_win_opts = {
+                number = false,
+            },
+        },
+    },
+
     -- clipboard management
     {
         'AckslD/nvim-neoclip.lua',
