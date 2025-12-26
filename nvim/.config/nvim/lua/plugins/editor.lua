@@ -374,50 +374,46 @@ return {
         },
     },
 
-    -- jupyter
+    -- jupyter client
     {
-        'SUSTech-data/neopyter',
+        'benlubas/molten-nvim',
+        ft = 'quarto',
+        version = '^1.0.0',
+        dependencies = { 'image.nvim' },
+        build = ':UpdateRemotePlugins',
+        init = function()
+            vim.g.molten_image_provider = 'image.nvim'
+            vim.g.molten_output_win_max_height = 20
+        end,
+    },
+
+    -- quarto support
+    {
+        'quarto-dev/quarto-nvim',
+        ft = 'quarto',
         dependencies = {
-            'nvim-lua/plenary.nvim',
+            'jmbuhr/otter.nvim',
             'nvim-treesitter/nvim-treesitter',
-            'AbaoFromCUG/websocket.nvim',
         },
         opts = {
-            mode = 'direct',
-            remote_address = '127.0.0.1:9001',
-            file_pattern = { '*.ju.*' },
-            on_attach = function(bufnr)
-                local function map(mode, lhs, rhs, desc)
-                    vim.keymap.set(mode, lhs, rhs, { desc = desc, buffer = bufnr })
-                end
-
-                map(
-                    'n',
-                    '<M-Enter>',
-                    '<Cmd>Neopyter run current<CR>',
-                    'Run Notebook Cell'
-                )
-                map(
-                    'n',
-                    '<M-k>',
-                    '<Cmd>Neopyter run allAbove<CR>',
-                    'Run Notebook Cells Above'
-                )
-                map(
-                    'n',
-                    '<M-j>',
-                    '<Cmd>Neopyter run allBelow<CR>',
-                    'Run Notebook Cells Below'
-                )
-                map('n', '<M-a>', '<Cmd>Neopyter run all<CR>', 'Run All Notebook Cells')
-                map('n', '<M-r>', '<Cmd>Neopyter kernel restart<CR>', 'Restart Kernel')
-                map(
-                    'n',
-                    '<M-R>',
-                    '<Cmd>Neopyter kernel restartRunAll<CR>',
-                    'Restart Kernel and Run All Cells'
-                )
-            end,
+            codeRunner = {
+                default_method = 'molten',
+            },
         },
+        config = function(_, opts)
+            require('quarto').setup(opts)
+
+            local function map(mode, lhs, rhs, desc)
+                vim.keymap.set(mode, lhs, rhs, { desc = desc, buffer = bufnr })
+            end
+
+            local runner = require 'quarto.runner'
+
+            map('n', '<M-Enter>', runner.run_cell, 'Run Notebook Cell')
+            map('v', '<M-Enter>', runner.run_range, 'Run Notebook Range')
+            map('n', '<M-k>', runner.run_above, 'Run Notebook Cells Above')
+            map('n', '<M-j', runner.run_below, 'Run Notebook Cells Below')
+            map('n', '<M-a>', runner.run_all, 'Run All Notebook Cells')
+        end,
     },
 }
