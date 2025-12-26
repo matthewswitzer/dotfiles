@@ -9,6 +9,7 @@ local api = vim.api
 -----------------------------------------------------------
 -- General
 -----------------------------------------------------------
+opt.clipboard = 'unnamedplus' -- use system clipboard
 opt.cmdheight = 0 -- collapse the command-line
 opt.completeopt = 'menu,menuone,noselect' -- autocompletion options
 opt.cursorline = true -- highlight current line
