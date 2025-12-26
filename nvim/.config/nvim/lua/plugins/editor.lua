@@ -158,7 +158,7 @@ return {
     {
         'dnlhc/glance.nvim',
         cmd = 'Glance',
-        config = {
+        opts = {
             preview_win_opts = {
                 number = false,
             },
