@@ -97,12 +97,9 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
-## Load pipx completions
-if type pipx &>/dev/null; then
-    autoload -U bashcompinit
-    bashcompinit
-
-    eval "$(register-python-argcomplete pipx)"
+## Load uv completions
+if type uv &>/dev/null; then
+    eval "$(uv generate-shell-completion zsh)"
 fi
 
 ## Load Homebrew-managed completions
