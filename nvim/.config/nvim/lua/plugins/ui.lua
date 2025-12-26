@@ -29,6 +29,10 @@ return {
             end
         end,
         opts = {
+            options = {
+                component_separators = '',
+                section_separators = { left = '', right = '' },
+            },
             sections = {
                 lualine_b = {
                     'branch',
