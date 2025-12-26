@@ -163,7 +163,10 @@ return {
         branch = 'v3.x',
         cmd = 'Neotree',
         dependencies = {
+            'image.nvim',
+            'antosha417/nvim-lsp-file-operations',
             'MunifTanjim/nui.nvim',
+            's1n7ax/nvim-window-picker',
         },
         keys = {
             -- Toggle the file explorer with <Leader>e; focus with <Leader>E
