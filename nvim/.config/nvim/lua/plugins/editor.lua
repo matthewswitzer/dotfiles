@@ -2,6 +2,24 @@
 -- Editor Configuration
 -----------------------------------------------------------
 
+-- venv-selector lualine component
+local venv_cache = { path = '', version = '' }
+local lualine_venv_name = function()
+    ---@diagnostic disable-next-line: undefined-field
+    local venv_path = require('venv-selector').venv()
+    local python_path = venv_path .. '/bin/python'
+    if venv_path and venv_path ~= venv_cache.path then
+        local version = vim.system({ python_path, '--version' }):wait().stdout
+
+        if version then
+            venv_cache.path = venv_path
+            venv_cache.version = version:gsub('Python (.+)\n', '%1')
+        end
+    end
+
+    return venv_cache.version
+end
+
 return {
 
     -- fuzzy finder
@@ -361,14 +379,7 @@ return {
         opts = {
             options = {
                 statusline_func = {
-                    lualine = function()
-                        local separator = package.config:sub(1, 1)
-                        local venv_path =
-                            require('venv-selector').venv():gsub(separator .. '.venv', '')
-                        local venv_name = vim.fs.basename(venv_path)
-
-                        return venv_name
-                    end,
+                    lualine = lualine_venv_name,
                 },
             },
         },
