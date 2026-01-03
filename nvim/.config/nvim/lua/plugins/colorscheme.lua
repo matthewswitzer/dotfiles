@@ -23,7 +23,7 @@ return {
                 FloatBorder = { fg = '$light_grey', bg = '$bg0' },
                 NormalFloat = { fg = '$fg', bg = '$bg0' },
                 BufferLineFill = { bg = '#1e2127' },
-                BufferLineIndicatorSelected = { fg = '$grey' },
+                BufferLineIndicatorSelected = { fg = '$blue', bg = '$bg0' },
                 BufferLineOffset = { fg = '$fg', bg = '$bg_d', fmt = 'bold' },
                 BufferLineSeparator = { fg = '#1e2127', bg = '#1e2127' },
                 IblIndent = { fg = '$bg3' },
