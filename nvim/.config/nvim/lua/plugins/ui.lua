@@ -38,11 +38,6 @@ return {
                     'branch',
                     'diff',
                     'diagnostics',
-                    {
-                        'venv-selector',
-                        icon = '',
-                        color = { fg = '#e5c07b' },
-                    },
                 },
                 lualine_c = {
                     {
@@ -62,6 +57,10 @@ return {
                         },
                     },
                     'filetype',
+                    {
+                        'venv-selector',
+                        icon = { '', color = { fg = '#ffbc03' } },
+                    },
                 },
             },
             extensions = {
