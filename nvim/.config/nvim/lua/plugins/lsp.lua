@@ -83,30 +83,19 @@ return {
             'b0o/schemastore.nvim',
         },
         init = function()
-            -- Set diagnostic signs
-            vim.fn.sign_define(
-                'DiagnosticSignError',
-                { text = '󰅙', texthl = 'DiagnosticSignError' }
-            )
-            vim.fn.sign_define(
-                'DiagnosticSignWarn',
-                { text = '󰀦', texthl = 'DiagnosticSignWarn' }
-            )
-            vim.fn.sign_define(
-                'DiagnosticSignInfo',
-                { text = '󰋼', texthl = 'DiagnosticSignInfo' }
-            )
-            vim.fn.sign_define(
-                'DiagnosticSignHint',
-                { text = '󰌵', texthl = 'DiagnosticSignHint' }
-            )
-
             -- Configure diagnostic options
             vim.diagnostic.config {
                 update_in_insert = true,
                 severity_sort = true,
                 virtual_text = false,
-                signs = false,
+                signs = {
+                    text = {
+                        [vim.diagnostic.severity.ERROR] = '󰅚',
+                        [vim.diagnostic.severity.WARN] = '󰀪',
+                        [vim.diagnostic.severity.INFO] = '󰋽',
+                        [vim.diagnostic.severity.HINT] = '󰌶',
+                    },
+                },
                 float = {
                     header = '',
                     suffix = '',
