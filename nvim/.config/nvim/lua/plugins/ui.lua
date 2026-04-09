@@ -146,27 +146,12 @@ return {
         end,
     },
 
-    -- image support
-    {
-        '3rd/image.nvim',
-        opts = {
-            backend = 'ueberzug',
-            max_width = 100,
-            max_height = 12,
-            max_height_window_percentage = math.huge,
-            max_width_window_percentage = math.huge,
-            window_overlap_clear_enabled = true,
-            window_overlap_clear_ft_ignore = { 'cmp_menu', 'cmp_docs', '' },
-        },
-    },
-
     -- file explorer
     {
         'nvim-neo-tree/neo-tree.nvim',
         branch = 'v3.x',
         cmd = 'Neotree',
         dependencies = {
-            'image.nvim',
             'antosha417/nvim-lsp-file-operations',
             'MunifTanjim/nui.nvim',
             's1n7ax/nvim-window-picker',
