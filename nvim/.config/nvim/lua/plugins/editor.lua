@@ -384,47 +384,4 @@ return {
             },
         },
     },
-
-    -- jupyter client
-    {
-        'benlubas/molten-nvim',
-        ft = 'quarto',
-        version = '^1.0.0',
-        dependencies = { 'image.nvim' },
-        build = ':UpdateRemotePlugins',
-        init = function()
-            vim.g.molten_image_provider = 'image.nvim'
-            vim.g.molten_output_win_max_height = 20
-        end,
-    },
-
-    -- quarto support
-    {
-        'quarto-dev/quarto-nvim',
-        ft = 'quarto',
-        dependencies = {
-            'jmbuhr/otter.nvim',
-            'nvim-treesitter/nvim-treesitter',
-        },
-        opts = {
-            codeRunner = {
-                default_method = 'molten',
-            },
-        },
-        config = function(_, opts)
-            require('quarto').setup(opts)
-
-            local function map(mode, lhs, rhs, desc)
-                vim.keymap.set(mode, lhs, rhs, { desc = desc, buffer = bufnr })
-            end
-
-            local runner = require 'quarto.runner'
-
-            map('n', '<M-Enter>', runner.run_cell, 'Run Notebook Cell')
-            map('v', '<M-Enter>', runner.run_range, 'Run Notebook Range')
-            map('n', '<M-k>', runner.run_above, 'Run Notebook Cells Above')
-            map('n', '<M-j', runner.run_below, 'Run Notebook Cells Below')
-            map('n', '<M-a>', runner.run_all, 'Run All Notebook Cells')
-        end,
-    },
 }
