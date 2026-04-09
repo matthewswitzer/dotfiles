@@ -45,7 +45,7 @@ return {
                 'html-lsp',
                 'json-lsp',
                 'lua-language-server',
-                'stylelint-lsp',
+                'stylelint-language-server',
                 'typescript-language-server',
                 'yaml-language-server',
 
