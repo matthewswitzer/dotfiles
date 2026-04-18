@@ -7,13 +7,9 @@ return {
     -- treesitter integration
     {
         'nvim-treesitter/nvim-treesitter',
-        branch = 'master',
+        branch = 'main',
         lazy = false,
         build = ':TSUpdate',
-        init = function(plugin)
-            require('lazy.core.loader').add_to_rtp(plugin)
-            require 'nvim-treesitter.query_predicates'
-        end,
         dependencies = {
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
@@ -57,9 +53,6 @@ return {
                 disable = { 'python' },
             },
         },
-        config = function(_, opts)
-            require('nvim-treesitter.configs').setup(opts)
-        end,
     },
 
     -- sticky scroll
