@@ -12,11 +12,6 @@ return {
             'rcarriga/nvim-dap-ui',
             'theHamsta/nvim-dap-virtual-text',
             'mfussenegger/nvim-dap-python',
-            'mxsdev/nvim-dap-vscode-js',
-            {
-                'microsoft/vscode-js-debug',
-                build = 'npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out',
-            },
         },
         keys = {
             {
@@ -106,11 +101,17 @@ return {
             )
 
             -- JS/TS adapter
-            require('dap-vscode-js').setup {
-                debugger_path = vim.fn.stdpath 'data' .. '/lazy/vscode-js-debug',
-                adapters = {
-                    'pwa-node',
-                    'pwa-chrome',
+            require('dap').adapters['pwa-node'] = {
+                type = 'server',
+                host = 'localhost',
+                port = '${port}',
+                executable = {
+                    command = 'node',
+                    args = {
+                        vim.fn.stdpath 'data'
+                            .. '/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js',
+                        '${port}',
+                    },
                 },
             }
 
