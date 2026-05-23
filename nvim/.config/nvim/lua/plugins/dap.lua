@@ -114,14 +114,6 @@ return {
                 },
             }
 
-            -- Define :DapLoadLaunchJson so we can set our own type to filetype mapping
-            vim.api.nvim_create_user_command('DapLoadLaunchJson', function()
-                require('dap.ext.vscode').load_launchjs(nil, {
-                    ['pwa-node'] = { 'javascript', 'typescript' },
-                    ['pwa-chrome'] = { 'javascript', 'typescript' },
-                })
-            end, { nargs = 0 })
-
             -- Setup DAP UI
             dapui.setup {}
 
