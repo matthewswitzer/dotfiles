@@ -60,7 +60,7 @@ export DOCKER_HOST=unix:///var/run/docker.sock
 export GOPATH="$HOME/.go"
 
 ## Java
-export PATH="/opt/homebrew/opt/openjdk@17/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home`
 
 ## Enter tmux session by default
