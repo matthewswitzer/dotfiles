@@ -6,7 +6,7 @@
 
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.codeActionsOnSave": {
-    "source.organizeImports": "explicit"
+    "source.organizeImports": "explicit",
   },
   "editor.fontFamily": "'FiraCode Nerd Font', Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
@@ -43,10 +43,10 @@
   "isort.args": ["--profile", "black"],
   "notebook.cellToolbarLocation": {
     "default": "right",
-    "jupyter-notebook": "right"
+    "jupyter-notebook": "right",
   },
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
+    "*.ipynb": "jupyter-notebook",
   },
 
   "redhat.telemetry.enabled": false,
@@ -58,63 +58,63 @@
   "vim.handleKeys": {
     "<C-d>": true,
     "<C-s>": true,
-    "<C-z>": false
+    "<C-z>": false,
   },
   "vim.normalModeKeyBindingsNonRecursive": [
     {
       "before": ["<C-s>"],
       "commands": ["workbench.action.files.save"],
-      "silent": true
+      "silent": true,
     },
     {
       "before": ["]", "g"],
       "commands": ["editor.action.marker.next"],
-      "silent": true
+      "silent": true,
     },
     {
       "before": ["[", "g"],
       "commands": ["editor.action.marker.prev"],
-      "silent": true
+      "silent": true,
     },
     {
       "before": ["K"],
       "commands": ["editor.action.showHover"],
-      "silent": true
+      "silent": true,
     },
     {
       "before": ["<Leader>", "a"],
-      "after": ["g", "g", "V", "G"]
+      "after": ["g", "g", "V", "G"],
     },
     {
       "before": ["<Leader>", "r", "n"],
       "commands": ["editor.action.rename"],
-      "silent": true
-    }
+      "silent": true,
+    },
   ],
   "vim.insertModeKeyBindingsNonRecursive": [
     {
       "before": ["<C-s>"],
       "after": ["<Esc>"],
       "commands": ["workbench.action.files.save"],
-      "silent": true
-    }
+      "silent": true,
+    },
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
       "before": ["<C-s>"],
       "after": ["<Esc>"],
       "commands": ["workbench.action.files.save"],
-      "silent": true
+      "silent": true,
     },
     {
       "before": [">"],
       "commands": ["editor.action.indentLines"],
-      "silent": true
+      "silent": true,
     },
     {
       "before": ["<"],
       "commands": ["editor.action.outdentLines"],
-      "silent": true
-    }
-  ]
+      "silent": true,
+    },
+  ],
 }
