@@ -30,7 +30,7 @@
   "workbench.startupEditor": "none",
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[python]": { "editor.defaultFormatter": "ms-python.black-formatter" },
+  "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" },
 
   "prettier.semi": false,
   "prettier.singleQuote": true,
@@ -39,7 +39,6 @@
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.indexing": true,
   "python.analysis.typeCheckingMode": "basic",
-  "isort.args": ["--profile", "black"],
   "notebook.cellToolbarLocation": {
     "default": "right",
     "jupyter-notebook": "right",
