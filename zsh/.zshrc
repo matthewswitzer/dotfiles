@@ -60,7 +60,7 @@ export DOCKER_HOST=unix:///var/run/docker.sock
 export GOPATH="$HOME/.go"
 
 ## Java
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@25/bin:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home`
 
 # .NET
