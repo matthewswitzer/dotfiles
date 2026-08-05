@@ -29,6 +29,8 @@
   "workbench.iconTheme": "material-icon-theme",
   "workbench.startupEditor": "none",
 
+  "chat.disableAIFeatures": true,
+
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "[fsharp]": { "editor.defaultFormatter": "Ionide.Ionide-fsharp" },
   "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" },
