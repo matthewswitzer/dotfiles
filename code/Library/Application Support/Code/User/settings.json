@@ -21,8 +21,7 @@
   "editor.wordWrap": "wordWrapColumn",
   "editor.wordWrapColumn": 90,
 
-  "telemetry.telemetryLevel": "off",
-
+  "terminal.external.osxExec": "WezTerm.app",
   "terminal.integrated.fontSize": 13,
   "terminal.integrated.lineHeight": 1.3,
 
