@@ -63,6 +63,10 @@ export GOPATH="$HOME/.go"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export JAVA_HOME=`/usr/libexec/java_home`
 
+# .NET
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+export DOTNET_NEW_PREFERRED_LANG="F#"
+
 ## Enter tmux session by default (except in vscode)
 if [[ ! $(ps -p $PPID -o comm= | tr '[:upper:]' '[:lower:]') =~ "code" ]]; then
     if [[ -x "$(command -v tmux)" && -z "$TMUX_PANE" ]]; then
