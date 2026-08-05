@@ -30,7 +30,11 @@
   "workbench.startupEditor": "none",
 
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[fsharp]": { "editor.defaultFormatter": "Ionide.Ionide-fsharp" },
   "[python]": { "editor.defaultFormatter": "charliermarsh.ruff" },
+
+  "FSharp.codeLenses.references.enabled": false,
+  "FSharp.lineLens.enabled": "never",
 
   "prettier.semi": false,
   "prettier.singleQuote": true,
